@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Weather View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Dual_Temp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WeatherViewController" customModule="Dual_Temp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,7 +40,7 @@
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="locationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zk1-iA-KUd"/>
+                                                    <action selector="locationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="046-LC-iz0"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p2u-Qa-DXw">
@@ -64,6 +64,7 @@
                                                 <state key="normal" backgroundImage="magnifyingglass" catalog="system"/>
                                                 <connections>
                                                     <action selector="searchButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fH0-os-tLr"/>
+                                                    <action selector="searchPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5hh-8e-8QS"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -80,7 +81,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="-3" translatesAutoresizingMaskIntoConstraints="NO" id="6rb-DH-Ku9">
                                                 <rect key="frame" x="0.0" y="14.333333333333343" width="118" height="71.666666666666671"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14w-zD-Gqt">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="14w-zD-Gqt">
                                                         <rect key="frame" x="0.0" y="0.0" width="60.333333333333336" height="71.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="55"/>
                                                         <nil key="textColor"/>
@@ -111,7 +112,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="-3" translatesAutoresizingMaskIntoConstraints="NO" id="ZJM-ln-kKI">
                                                 <rect key="frame" x="247.99999999999997" y="14.333333333333343" width="108.66666666666666" height="71.666666666666671"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LEG-5g-Yr2">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LEG-5g-Yr2">
                                                         <rect key="frame" x="0.0" y="0.0" width="60.333333333333336" height="71.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="55"/>
                                                         <nil key="textColor"/>
@@ -145,10 +146,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="cityLabel" destination="AtU-il-PaD" id="qMr-Gc-5ET"/>
-                        <outlet property="conditionImageView" destination="v0u-9w-6xX" id="pm0-e7-RRi"/>
-                        <outlet property="searchTextField" destination="p2u-Qa-DXw" id="RMe-xi-ksc"/>
-                        <outlet property="temperatureLabel" destination="14w-zD-Gqt" id="bii-ll-VeU"/>
+                        <outlet property="cityLabel" destination="AtU-il-PaD" id="d91-R6-EH3"/>
+                        <outlet property="conditionImageView" destination="v0u-9w-6xX" id="Cpy-jB-IWW"/>
+                        <outlet property="searchTextField" destination="p2u-Qa-DXw" id="mrz-a9-cJx"/>
+                        <outlet property="temperatureLabel" destination="14w-zD-Gqt" id="fgS-zW-5mB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
