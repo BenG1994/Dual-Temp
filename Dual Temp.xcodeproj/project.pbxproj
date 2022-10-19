@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E0C00EB290032C60018B8D3 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0C00EA290032C60018B8D3 /* WeatherModel.swift */; };
+		2EAC53772900360F0006506F /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAC53762900360F0006506F /* WeatherData.swift */; };
 		2ED7D7F029001F8000634C4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7D7EF29001F8000634C4B /* AppDelegate.swift */; };
 		2ED7D7F229001F8000634C4B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7D7F129001F8000634C4B /* SceneDelegate.swift */; };
 		2ED7D7F429001F8000634C4B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7D7F329001F8000634C4B /* ViewController.swift */; };
 		2ED7D7F729001F8000634C4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ED7D7F529001F8000634C4B /* Main.storyboard */; };
 		2ED7D7F929001F8200634C4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ED7D7F829001F8200634C4B /* Assets.xcassets */; };
 		2ED7D7FC29001F8200634C4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ED7D7FA29001F8200634C4B /* LaunchScreen.storyboard */; };
+		2EE3E4AB290031FF008D57FA /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE3E4AA290031FF008D57FA /* WeatherManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E0C00EA290032C60018B8D3 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		2EAC53762900360F0006506F /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		2ED7D7EC29001F8000634C4B /* Dual Temp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dual Temp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ED7D7EF29001F8000634C4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2ED7D7F129001F8000634C4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +29,7 @@
 		2ED7D7F829001F8200634C4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2ED7D7FB29001F8200634C4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2ED7D7FD29001F8200634C4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EE3E4AA290031FF008D57FA /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +64,40 @@
 			children = (
 				2ED7D7EF29001F8000634C4B /* AppDelegate.swift */,
 				2ED7D7F129001F8000634C4B /* SceneDelegate.swift */,
-				2ED7D7F329001F8000634C4B /* ViewController.swift */,
-				2ED7D7F529001F8000634C4B /* Main.storyboard */,
+				2EE3E4AC29003212008D57FA /* Models */,
+				2EE3E4A8290031EE008D57FA /* Controllers */,
+				2EE3E4A9290031F3008D57FA /* View */,
 				2ED7D7F829001F8200634C4B /* Assets.xcassets */,
 				2ED7D7FA29001F8200634C4B /* LaunchScreen.storyboard */,
 				2ED7D7FD29001F8200634C4B /* Info.plist */,
 			);
 			path = "Dual Temp";
+			sourceTree = "<group>";
+		};
+		2EE3E4A8290031EE008D57FA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2ED7D7F329001F8000634C4B /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2EE3E4A9290031F3008D57FA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2ED7D7F529001F8000634C4B /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2EE3E4AC29003212008D57FA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2EE3E4AA290031FF008D57FA /* WeatherManager.swift */,
+				2E0C00EA290032C60018B8D3 /* WeatherModel.swift */,
+				2EAC53762900360F0006506F /* WeatherData.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +173,10 @@
 			files = (
 				2ED7D7F429001F8000634C4B /* ViewController.swift in Sources */,
 				2ED7D7F029001F8000634C4B /* AppDelegate.swift in Sources */,
+				2EE3E4AB290031FF008D57FA /* WeatherManager.swift in Sources */,
 				2ED7D7F229001F8000634C4B /* SceneDelegate.swift in Sources */,
+				2EAC53772900360F0006506F /* WeatherData.swift in Sources */,
+				2E0C00EB290032C60018B8D3 /* WeatherModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,11 +326,14 @@
 				DEVELOPMENT_TEAM = 4224Q87F2F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Dual Temp/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Dual Temp";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,9 +341,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bengauger.Dual-Temp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -318,11 +360,14 @@
 				DEVELOPMENT_TEAM = 4224Q87F2F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Dual Temp/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Dual Temp";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,9 +375,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bengauger.Dual-Temp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
