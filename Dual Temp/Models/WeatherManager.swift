@@ -17,6 +17,10 @@ struct WeatherManager {
     
     let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=147b36d894b7480cc937f8d7e03a4af0&units=metric"
     
+    //    "https://api.openweathermap.org/data/2.5/weather?appid=147b36d894b7480cc937f8d7e03a4af0&units=metric"
+    
+    
+    
     var delegate: WeatherManagerDelegate?
     
     func fetchWeather (cityName: String) {
@@ -32,7 +36,7 @@ struct WeatherManager {
     func performRequest(with urlString: String) {
         if let url = URL(string: urlString){
             let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: url) { data, response, error in
+            let task = session.dataTask(with: url) { (data, response, error) in
                 if error != nil {
                     self.delegate?.didFailWithError(error: error!)
                     return

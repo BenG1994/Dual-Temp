@@ -63,8 +63,7 @@
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" backgroundImage="magnifyingglass" catalog="system"/>
                                                 <connections>
-                                                    <action selector="searchButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fH0-os-tLr"/>
-                                                    <action selector="searchPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5hh-8e-8QS"/>
+                                                    <action selector="searchPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h5M-K7-CFf"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -146,7 +145,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="cityLabel" destination="AtU-il-PaD" id="d91-R6-EH3"/>
+                        <outlet property="cityLabel" destination="AtU-il-PaD" id="jp6-Km-euB"/>
                         <outlet property="conditionImageView" destination="v0u-9w-6xX" id="Cpy-jB-IWW"/>
                         <outlet property="searchTextField" destination="p2u-Qa-DXw" id="mrz-a9-cJx"/>
                         <outlet property="temperatureLabel" destination="14w-zD-Gqt" id="fgS-zW-5mB"/>

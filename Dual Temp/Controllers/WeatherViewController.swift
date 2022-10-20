@@ -37,7 +37,7 @@ class WeatherViewController: UIViewController {
         locationManager.requestLocation()
     }
     
-  
+    
     
 }
 
@@ -79,21 +79,22 @@ extension WeatherViewController: UITextFieldDelegate {
         if textField.text != "" {
             return true
         }else {
-            textField.placeholder = "Search for a place."
+            textField.placeholder = "Search for a place"
             return false
         }
+    }
         
         func textFieldDidEndEditing(_ textfield: UITextField) {
             if let city = searchTextField.text{
                 weatherManager.fetchWeather(cityName: city)
             }
             searchTextField.text = ""
-        }
+        
     }
 }
-    
-    //MARK: - WeatherManagerDelegate
-    
+
+//MARK: - WeatherManagerDelegate
+
 extension WeatherViewController: WeatherManagerDelegate {
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
         DispatchQueue.main.async {
@@ -107,7 +108,7 @@ extension WeatherViewController: WeatherManagerDelegate {
         print (error)
     }
 }
-    
+
 
 
 
