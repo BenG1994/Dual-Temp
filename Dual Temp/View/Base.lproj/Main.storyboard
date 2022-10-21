@@ -109,23 +109,11 @@
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="-3" translatesAutoresizingMaskIntoConstraints="NO" id="ZJM-ln-kKI">
-                                                <rect key="frame" x="237" y="14.333333333333343" width="109" height="71.666666666666671"/>
+                                                <rect key="frame" x="237" y="17.333333333333343" width="109" height="65.666666666666671"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LEG-5g-Yr2">
-                                                        <rect key="frame" x="0.0" y="0.0" width="60.333333333333336" height="71.666666666666671"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="55"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GNQ-bu-TlT">
-                                                        <rect key="frame" x="57.333333333333314" y="0.0" width="23" height="71.666666666666671"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="60"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="F" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kzs-xW-D3p">
-                                                        <rect key="frame" x="77.333333333333314" y="0.0" width="31.666666666666671" height="71.666666666666671"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="60"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21°F" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LEG-5g-Yr2">
+                                                        <rect key="frame" x="0.0" y="0.0" width="109" height="65.666666666666671"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="55"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -159,6 +147,7 @@
                         <outlet property="conditionImageView" destination="v0u-9w-6xX" id="Cpy-jB-IWW"/>
                         <outlet property="searchTextField" destination="p2u-Qa-DXw" id="mrz-a9-cJx"/>
                         <outlet property="temperatureLabel" destination="14w-zD-Gqt" id="fgS-zW-5mB"/>
+                        <outlet property="temperatureLabelFahrenheit" destination="LEG-5g-Yr2" id="fVr-4O-vvl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
