@@ -16,6 +16,7 @@ protocol WeatherManagerDelegate {
 
 struct WeatherManager {
     
+    
     let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=147b36d894b7480cc937f8d7e03a4af0&units=metric"
     
     let weatherURLFahrenheit = "https://api.openweathermap.org/data/2.5/weather?appid=147b36d894b7480cc937f8d7e03a4af0&units=imperial"
@@ -23,8 +24,11 @@ struct WeatherManager {
     //    //    "https://api.openweathermap.org/data/2.5/weather?appid=147b36d894b7480cc937f8d7e03a4af0&units=metric"
     //
     
+//    let cityNameString = cityName.replacingOccurrences(of: " ", with: "+")
     
     var delegate: WeatherManagerDelegate?
+    
+   
     
     func fetchWeather (cityName: String) {
         let urlString = "\(weatherURL)&q=\(cityName)"
@@ -42,6 +46,7 @@ struct WeatherManager {
         performRequestFahrenheit(with: urlString)
         
     }
+    
     
     func fetchWeatherFahrenheit(latitude: CLLocationDegrees, longitude: CLLocationDegrees){
         let urlString = "\(weatherURLFahrenheit)&lat=\(latitude)&lon=\(longitude)"

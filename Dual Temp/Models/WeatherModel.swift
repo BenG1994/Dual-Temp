@@ -15,6 +15,10 @@ struct WeatherModel {
     let cityName: String
     let temperature: Double
     
+    func replaceSpaces(cityName: String) -> String {
+        let correctCityName = cityName.replacingOccurrences(of: " ", with: "+")
+        return correctCityName
+    }
     
     var temperatureString: String {
         return String (format: "%.0f", temperature)
@@ -51,7 +55,7 @@ struct WeatherModel {
 struct WeatherModelFahrenheit {
     
     let conditionId: Int
-    let cityName: String
+   let cityName: String
     let temperatureFahrenheit: Double
     
 

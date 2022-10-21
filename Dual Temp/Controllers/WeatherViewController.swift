@@ -25,6 +25,7 @@ class WeatherViewController: UIViewController {
     //    let locationManagerFahrenheit = CLLocationManager()
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -70,13 +71,17 @@ extension WeatherViewController: CLLocationManagerDelegate {
     
     extension WeatherViewController: UITextFieldDelegate {
         
+        
         @IBAction func searchPressed(_ sender: UIButton) {
             print (searchTextField.text!)
             searchTextField.endEditing(true)
         }
         
         func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            print (searchTextField.text!)
+//            let searchName =  searchTextField.text!
+//            let searchNameTextField = searchName.replacingOccurrences(of: " ", with: "+")
+        
+//            print (searchNameTextField)
             searchTextField.endEditing(true)
             return true
         }
@@ -91,13 +96,24 @@ extension WeatherViewController: CLLocationManagerDelegate {
         }
         
         func textFieldDidEndEditing(_ textfield: UITextField) {
-            if let city = searchTextField.text{
-                weatherManager.fetchWeather(cityName: city)
-                weatherManager.fetchWeatherFahrenheit(cityName: city)
+            if let city = searchTextField.text {
+                
+                let searchName =  searchTextField.text!
+                let searchNameTextField = searchName.replacingOccurrences(of: " ", with: "+")
+                
+                weatherManager.fetchWeather(cityName: searchNameTextField)
+                weatherManager.fetchWeatherFahrenheit(cityName: searchNameTextField)
             }
             searchTextField.text = ""
             
+           
         }
+        
+        func replacesSpaces() -> String {
+            let twoWordName = searchTextField.text!.replacingOccurrences(of: " ", with: "_")
+            return twoWordName
+        }
+        
     }
     
     //MARK: - WeatherManagerDelegate
