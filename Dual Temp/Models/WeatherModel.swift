@@ -17,6 +17,9 @@ struct WeatherModel {
     let feels_like: Double
     let visibility: Int
     let humidity: Int
+    let wind: Double
+    let sunrise: Double
+    let sunset: Double
     
     func replaceSpaces(cityName: String) -> String {
         let correctCityName = cityName.replacingOccurrences(of: " ", with: "+")
@@ -39,6 +42,21 @@ struct WeatherModel {
         return String (format: "%.0f", humidity)
     }
     
+    var windSpeedString: String {
+        return String (format: "%.0f", wind)
+    }
+    
+//    var rainString: String {
+//        return String (format: "%.0f", rain)
+//    }
+    
+    var sunsetString: String {
+        return String (format: "%.0f", sunset)
+    }
+    
+    var sunriseString: String {
+        return String (format: "%.0f", sunrise)
+    }
     
     var conditionName: String {
         switch conditionId {
@@ -70,13 +88,13 @@ struct WeatherModel {
     var visibilityStrength: String {
         switch visibility {
         case 0...1000:
-            return "cloud"
+            return "smoke"
         case 2000...4000:
-            return "cloud.sun"
+            return "cloud"
         case 5000...7000:
-            return "sun.haze"
+            return "cloud.sun"
         case 8000...9000:
-            return "sun.dust"
+            return "sun.haze"
         case 10000:
             return "sun.max"
             

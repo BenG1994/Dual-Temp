@@ -24,7 +24,11 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var visibilityImageView: UIImageView!
     @IBOutlet weak var visibilityLabel: UILabel!
     @IBOutlet weak var humidityLabel: UILabel!
-    @IBOutlet weak var humidityImageView: UIImageView!
+    @IBOutlet weak var windSpeedLabel: UILabel!
+    @IBOutlet weak var sunsetLabel: UILabel!
+    @IBOutlet weak var sunriseLabel: UILabel!
+    
+    
     
     var weatherManager = WeatherManager()
     //    var weatherManagerFahrenheit = WeatherManagerFahrenheit()
@@ -148,6 +152,19 @@ extension WeatherViewController: WeatherManagerDelegate {
     
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
         var newVisibility = weather.visibility/1000
+        
+    
+        let sunsetTimeStamp = Date(timeIntervalSince1970: weather.sunset)
+       let formatter = DateFormatter()
+        formatter.dateStyle = .none
+        formatter.timeStyle = .short
+        let formattedSunsetTime = formatter.string(from: sunsetTimeStamp)
+        print (formattedSunsetTime)
+        
+        let sunriseTimeStamp = Date(timeIntervalSince1970: weather.sunrise)
+        let formattedSunriseTime = formatter.string(from: sunriseTimeStamp)
+        print (formattedSunriseTime)
+        
     
         print (newVisibility)
             DispatchQueue.main.async {
@@ -164,6 +181,9 @@ extension WeatherViewController: WeatherManagerDelegate {
                 self.visibilityLabel.text = "\(newVisibility)km"
                 self.visibilityImageView.image = UIImage(systemName: weather.visibilityStrength)
                 self.humidityLabel.text = "\(weather.humidity)%"
+                self.windSpeedLabel.text = "\(weather.windSpeedString)km/h"
+                self.sunsetLabel.text = "\(formattedSunsetTime)"
+                self.sunriseLabel.text = "\(formattedSunriseTime)"
             }
         }
     }
