@@ -18,6 +18,13 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var temperatureLabelFahrenheit: UILabel!
+    @IBOutlet weak var unitsChanged: UIButton!
+    @IBOutlet weak var feelsLikeImageView: UIImageView!
+    @IBOutlet weak var feelsLikeLabel: UILabel!
+    @IBOutlet weak var visibilityImageView: UIImageView!
+    @IBOutlet weak var visibilityLabel: UILabel!
+    @IBOutlet weak var humidityLabel: UILabel!
+    @IBOutlet weak var humidityImageView: UIImageView!
     
     var weatherManager = WeatherManager()
     //    var weatherManagerFahrenheit = WeatherManagerFahrenheit()
@@ -36,6 +43,8 @@ class WeatherViewController: UIViewController {
         
         weatherManager.delegate = self
         searchTextField.delegate = self
+        
+        unitsChanged.setTitle("Metric", for: UIControl.State.normal)
     }
     
     
@@ -43,10 +52,18 @@ class WeatherViewController: UIViewController {
         locationManager.requestLocation()
     }
     
+    @IBAction func unitsPressed(_ sender: UIButton) {
+        if (sender.currentTitle == "Imperial") {
+            sender.setTitle("Metric", for: UIControl.State.normal)
+        }else {
+            sender.setTitle("Imperial", for: UIControl.State.normal)
+        }
+        let units = sender.currentTitle!
+        unitsChanged.setTitle(units, for: UIControl.State.normal)
+        print (units)
     
-    
+    }
 }
-
 
 //MARK: - CLLocationManagerDelegate
 
@@ -119,6 +136,9 @@ extension WeatherViewController: CLLocationManagerDelegate {
     //MARK: - WeatherManagerDelegate
     
 extension WeatherViewController: WeatherManagerDelegate {
+    
+    
+    
     func didUpdateWeatherFahrenheit(_weatherManager: WeatherManager, weather: WeatherModelFahrenheit) {
         DispatchQueue.main.async {
             self.temperatureLabelFahrenheit
@@ -126,17 +146,29 @@ extension WeatherViewController: WeatherManagerDelegate {
         }
     }
     
-        func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
+    func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
+        var newVisibility = weather.visibility/1000
+    
+        print (newVisibility)
             DispatchQueue.main.async {
                 self.temperatureLabel.text = "\(weather.temperatureString)°C"
-              
+               
+                
                 self.cityLabel.text = weather.cityName
                 self.conditionImageView.image = UIImage(systemName: weather.conditionName)
             }
+        if unitsChanged.currentTitle == "Metric"{
+            DispatchQueue.main.async {
+                self.feelsLikeLabel.text = "\(weather.feelsLikeString)°C"
+                self.feelsLikeImageView.image = UIImage(systemName: weather.conditionName)
+                self.visibilityLabel.text = "\(newVisibility)km"
+                self.visibilityImageView.image = UIImage(systemName: weather.visibilityStrength)
+                self.humidityLabel.text = "\(weather.humidity)%"
+            }
         }
+    }
         
         func didFailWithError(error: Error) {
             print (error)
         }
     }
-
