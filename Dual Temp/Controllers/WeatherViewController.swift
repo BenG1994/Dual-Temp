@@ -207,7 +207,7 @@ func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
         self.temperatureLabel.text = "\(weather.temperatureString)°C"
         self.timezoneLabel.text = timeZoneIdentifier
 
-        
+        self.humidityLabel.text = "\(weather.humidity)%"
         
         self.cityLabel.text = "\(weather.cityName)"
         self.flagImage.image = flag.originalImage
@@ -222,7 +222,7 @@ func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
             self.feelsLikeImageView.image = UIImage(systemName: weather.conditionName)
             self.visibilityLabel.text = "\(newVisibility)km"
             self.visibilityImageView.image = UIImage(systemName: weather.visibilityStrength)
-            self.humidityLabel.text = "\(weather.humidity)%"
+           
             self.windSpeedLabel.text = "\(weather.windSpeedString)km/h"
             
         }
