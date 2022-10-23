@@ -20,6 +20,7 @@ struct WeatherModel {
     let wind: Double
     let sunrise: Double
     let sunset: Double
+    let timezone: Int
     
     func replaceSpaces(cityName: String) -> String {
         let correctCityName = cityName.replacingOccurrences(of: " ", with: "+")
@@ -56,6 +57,10 @@ struct WeatherModel {
     
     var sunriseString: String {
         return String (format: "%.0f", sunrise)
+    }
+    
+    var timezoneString: String {
+        return String (format: "%.0f", timezone)
     }
     
     var conditionName: String {
@@ -121,11 +126,26 @@ struct WeatherModelFahrenheit {
     let conditionId: Int
    let cityName: String
     let temperatureFahrenheit: Double
-    
+    let feels_likeFahrenheit: Double
+    let visibilityImperial: Int
+    let windImperial: Double
 
     
     var temperatureStringFahrenheit: String {
         return String (format: "%.0f", temperatureFahrenheit)
+    }
+    
+    var feelsLikeStringFahrenheit: String {
+        return String (format: "%.0f", feels_likeFahrenheit)
+    }
+    
+    var visibilityStringImperial: String {
+        return String (format: "%.0f", visibilityImperial)
+    }
+
+    
+    var windSpeedStringImperial: String {
+        return String (format: "%.0f", windImperial)
     }
     
     

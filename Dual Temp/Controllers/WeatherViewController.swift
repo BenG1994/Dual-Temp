@@ -48,7 +48,7 @@ class WeatherViewController: UIViewController {
         weatherManager.delegate = self
         searchTextField.delegate = self
         
-        unitsChanged.setTitle("Metric", for: UIControl.State.normal)
+        //        unitsChanged.setTitle("Metric", for: UIControl.State.normal)
     }
     
     
@@ -65,7 +65,10 @@ class WeatherViewController: UIViewController {
         let units = sender.currentTitle!
         unitsChanged.setTitle(units, for: UIControl.State.normal)
         print (units)
-    
+        
+
+        self.viewDidLoad()
+        
     }
 }
 
@@ -87,108 +90,138 @@ extension WeatherViewController: CLLocationManagerDelegate {
         print (error)
     }
 }
+
+//MARK: - UITextFieldDelegate
+
+extension WeatherViewController: UITextFieldDelegate {
     
-    //MARK: - UITextFieldDelegate
     
-    extension WeatherViewController: UITextFieldDelegate {
+    @IBAction func searchPressed(_ sender: UIButton) {
+        print (searchTextField.text!)
+        searchTextField.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        //            let searchName =  searchTextField.text!
+        //            let searchNameTextField = searchName.replacingOccurrences(of: " ", with: "+")
         
-        
-        @IBAction func searchPressed(_ sender: UIButton) {
-            print (searchTextField.text!)
-            searchTextField.endEditing(true)
-        }
-        
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//            let searchName =  searchTextField.text!
-//            let searchNameTextField = searchName.replacingOccurrences(of: " ", with: "+")
-        
-//            print (searchNameTextField)
-            searchTextField.endEditing(true)
+        //            print (searchNameTextField)
+        searchTextField.endEditing(true)
+        return true
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if textField.text != "" {
             return true
+        }else {
+            textField.placeholder = "Search for a place"
+            return false
         }
-        
-        func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-            if textField.text != "" {
-                return true
-            }else {
-                textField.placeholder = "Search for a place"
-                return false
-            }
-        }
-        
-        func textFieldDidEndEditing(_ textfield: UITextField) {
-            if let city = searchTextField.text {
-                
-                let searchName =  searchTextField.text!
-                let searchNameTextField = searchName.replacingOccurrences(of: " ", with: "+")
-                
-                weatherManager.fetchWeather(cityName: searchNameTextField)
-                weatherManager.fetchWeatherFahrenheit(cityName: searchNameTextField)
-            }
-            searchTextField.text = ""
+    }
+    
+    func textFieldDidEndEditing(_ textfield: UITextField) {
+        if let city = searchTextField.text {
             
-           
+            let searchName =  searchTextField.text!
+            let searchNameTextField = searchName.replacingOccurrences(of: " ", with: "+")
+            
+            weatherManager.fetchWeather(cityName: searchNameTextField)
+            weatherManager.fetchWeatherFahrenheit(cityName: searchNameTextField)
         }
+        searchTextField.text = ""
         
-        func replacesSpaces() -> String {
-            let twoWordName = searchTextField.text!.replacingOccurrences(of: " ", with: "_")
-            return twoWordName
-        }
         
     }
     
-    //MARK: - WeatherManagerDelegate
+    func replacesSpaces() -> String {
+        let twoWordName = searchTextField.text!.replacingOccurrences(of: " ", with: "_")
+        return twoWordName
+    }
     
+}
+
+//MARK: - WeatherManagerDelegate
+
 extension WeatherViewController: WeatherManagerDelegate {
     
     
     
     func didUpdateWeatherFahrenheit(_weatherManager: WeatherManager, weather: WeatherModelFahrenheit) {
+        var newVisibility = Double(weather.visibilityImperial) * 0.000621371192237
+        
+        var visibilityStringImperialNew: String {
+            return String (format: "%.0f", newVisibility)
+        }
+        
+        
         DispatchQueue.main.async {
             self.temperatureLabelFahrenheit
                 .text = "\(weather.temperatureStringFahrenheit)°F"
+            
         }
-    }
-    
-    func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
-        var newVisibility = weather.visibility/1000
         
-    
-        let sunsetTimeStamp = Date(timeIntervalSince1970: weather.sunset)
-       let formatter = DateFormatter()
-        formatter.dateStyle = .none
-        formatter.timeStyle = .short
-        let formattedSunsetTime = formatter.string(from: sunsetTimeStamp)
-        print (formattedSunsetTime)
-        
-        let sunriseTimeStamp = Date(timeIntervalSince1970: weather.sunrise)
-        let formattedSunriseTime = formatter.string(from: sunriseTimeStamp)
-        print (formattedSunriseTime)
-        
-    
-        print (newVisibility)
+        if unitsChanged.currentTitle == "Imperial"{
             DispatchQueue.main.async {
-                self.temperatureLabel.text = "\(weather.temperatureString)°C"
-               
+                self.feelsLikeLabel.text = "\(weather.feelsLikeStringFahrenheit)°F"
+                self.windSpeedLabel.text = "\(weather.windSpeedStringImperial)mp/h"
+                self.visibilityLabel.text = "\(visibilityStringImperialNew)m"
                 
-                self.cityLabel.text = weather.cityName
-                self.conditionImageView.image = UIImage(systemName: weather.conditionName)
-            }
-        if unitsChanged.currentTitle == "Metric"{
-            DispatchQueue.main.async {
-                self.feelsLikeLabel.text = "\(weather.feelsLikeString)°C"
-                self.feelsLikeImageView.image = UIImage(systemName: weather.conditionName)
-                self.visibilityLabel.text = "\(newVisibility)km"
-                self.visibilityImageView.image = UIImage(systemName: weather.visibilityStrength)
-                self.humidityLabel.text = "\(weather.humidity)%"
-                self.windSpeedLabel.text = "\(weather.windSpeedString)km/h"
-                self.sunsetLabel.text = "\(formattedSunsetTime)"
-                self.sunriseLabel.text = "\(formattedSunriseTime)"
             }
         }
     }
+
+
+func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
+    var newVisibility = weather.visibility/1000
+    
+//    let date = Date(timeIntervalSince1970: unixtimeInterval)
+//    let dateFormatter = DateFormatter()
+//    dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
+//    dateFormatter.locale = NSLocale.current
+//    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm" //Specify your format that you want
+//    let strDate = dateFormatter.string(from: date)
+//
+    
+    
+    let sunsetTimeStamp = Date(timeIntervalSince1970: weather.sunset)
+    let formatter = DateFormatter()
+    formatter.dateStyle = .none
+    formatter.timeZone = TimeZone(secondsFromGMT: weather.timezone)
+    formatter.timeStyle = .short
+    let formattedSunsetTime = formatter.string(from: sunsetTimeStamp)
+    print (formattedSunsetTime)
+    
+    let sunriseTimeStamp = Date(timeIntervalSince1970: weather.sunrise)
+    let formattedSunriseTime = formatter.string(from: sunriseTimeStamp)
+    print (formattedSunriseTime)
+    
+    
+    print (newVisibility)
+    DispatchQueue.main.async {
+        self.temperatureLabel.text = "\(weather.temperatureString)°C"
         
-        func didFailWithError(error: Error) {
-            print (error)
+        
+        self.cityLabel.text = weather.cityName
+        self.conditionImageView.image = UIImage(systemName: weather.conditionName)
+        self.sunsetLabel.text = "\(formattedSunsetTime)"
+        self.sunriseLabel.text = "\(formattedSunriseTime)"
+    }
+    
+    if unitsChanged.currentTitle == "Metric"{
+        DispatchQueue.main.async {
+            self.feelsLikeLabel.text = "\(weather.feelsLikeString)°C"
+            self.feelsLikeImageView.image = UIImage(systemName: weather.conditionName)
+            self.visibilityLabel.text = "\(newVisibility)km"
+            self.visibilityImageView.image = UIImage(systemName: weather.visibilityStrength)
+            self.humidityLabel.text = "\(weather.humidity)%"
+            self.windSpeedLabel.text = "\(weather.windSpeedString)km/h"
+            
         }
     }
+    
+}
+
+func didFailWithError(error: Error) {
+    print (error)
+}
+}

@@ -15,6 +15,7 @@ struct WeatherData: Codable {
     let wind: Wind
     let visibility: Int
     let sys: Sys
+    let timezone: Int
 }
 
 struct Main: Codable {

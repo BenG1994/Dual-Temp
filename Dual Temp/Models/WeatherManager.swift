@@ -84,6 +84,7 @@ struct WeatherManager {
             let wind = decodedData.wind.speed
             let sunrise = decodedData.sys.sunrise
             let sunset = decodedData.sys.sunset
+            let timezone = decodedData.timezone
             
             let weather = WeatherModel(
                 conditionId: id,
@@ -94,7 +95,8 @@ struct WeatherManager {
                 humidity: humidity,
                 wind: wind,
                 sunrise: sunrise,
-            sunset: sunset)
+                sunset: sunset,
+                timezone: timezone)
             
             return weather
         }catch {
@@ -130,8 +132,17 @@ struct WeatherManager {
             let id = decodedData.weather[0].id
             let name = decodedData.name
             let temp = decodedData.main.temp
+            let feels = decodedData.main.feels_like
+            let visibility = decodedData.visibility
+            let wind = decodedData.wind.speed
             
-            let weather = WeatherModelFahrenheit(conditionId: id, cityName: name, temperatureFahrenheit: temp)
+            let weather = WeatherModelFahrenheit(
+                conditionId: id,
+                cityName: name,
+                temperatureFahrenheit: temp,
+                feels_likeFahrenheit: feels,
+                visibilityImperial: visibility,
+                windImperial: wind)
             return weather
         }catch {
             delegate?.didFailWithError(error: error)
