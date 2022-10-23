@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import FlagKit
 
 class WeatherViewController: UIViewController {
     
@@ -27,8 +28,9 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var windSpeedLabel: UILabel!
     @IBOutlet weak var sunsetLabel: UILabel!
     @IBOutlet weak var sunriseLabel: UILabel!
+    @IBOutlet weak var timezoneLabel: UILabel!
     
-    
+    @IBOutlet weak var flagImage: UIImageView!
     
     var weatherManager = WeatherManager()
     //    var weatherManagerFahrenheit = WeatherManagerFahrenheit()
@@ -47,6 +49,7 @@ class WeatherViewController: UIViewController {
         
         weatherManager.delegate = self
         searchTextField.delegate = self
+        unitsChanged.layer.cornerRadius = 10
         
         //        unitsChanged.setTitle("Metric", for: UIControl.State.normal)
     }
@@ -173,16 +176,10 @@ extension WeatherViewController: WeatherManagerDelegate {
 
 func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
     var newVisibility = weather.visibility/1000
+    let countryCode = weather.country
+    let flag = Flag(countryCode: countryCode)!
     
-//    let date = Date(timeIntervalSince1970: unixtimeInterval)
-//    let dateFormatter = DateFormatter()
-//    dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
-//    dateFormatter.locale = NSLocale.current
-//    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm" //Specify your format that you want
-//    let strDate = dateFormatter.string(from: date)
-//
-    
-    
+
     let sunsetTimeStamp = Date(timeIntervalSince1970: weather.sunset)
     let formatter = DateFormatter()
     formatter.dateStyle = .none
@@ -196,12 +193,24 @@ func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
     print (formattedSunriseTime)
     
     
-    print (newVisibility)
+    
+    let inputTimeZone = TimeZone(secondsFromGMT: weather.timezone)!
+    let timeZoneIdentifier = inputTimeZone.identifier
+    
+    print(timeZoneIdentifier)
+
+    
+
     DispatchQueue.main.async {
+
+        
         self.temperatureLabel.text = "\(weather.temperatureString)°C"
+        self.timezoneLabel.text = timeZoneIdentifier
+
         
         
-        self.cityLabel.text = weather.cityName
+        self.cityLabel.text = "\(weather.cityName)"
+        self.flagImage.image = flag.originalImage
         self.conditionImageView.image = UIImage(systemName: weather.conditionName)
         self.sunsetLabel.text = "\(formattedSunsetTime)"
         self.sunriseLabel.text = "\(formattedSunriseTime)"

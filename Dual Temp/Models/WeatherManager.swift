@@ -85,6 +85,9 @@ struct WeatherManager {
             let sunrise = decodedData.sys.sunrise
             let sunset = decodedData.sys.sunset
             let timezone = decodedData.timezone
+            let country = decodedData.sys.country
+            let latitude = decodedData.coord.lat
+            let longitude = decodedData.coord.lon
             
             let weather = WeatherModel(
                 conditionId: id,
@@ -96,7 +99,10 @@ struct WeatherManager {
                 wind: wind,
                 sunrise: sunrise,
                 sunset: sunset,
-                timezone: timezone)
+                timezone: timezone,
+                country: country,
+                latitude: latitude,
+                longitude: longitude)
             
             return weather
         }catch {

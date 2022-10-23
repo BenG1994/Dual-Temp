@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2E0C00EB290032C60018B8D3 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0C00EA290032C60018B8D3 /* WeatherModel.swift */; };
+		2E4994082905678E0067D443 /* FlagKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2E4994072905678E0067D443 /* FlagKit */; };
 		2EAC53772900360F0006506F /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAC53762900360F0006506F /* WeatherData.swift */; };
 		2ED7D7F029001F8000634C4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7D7EF29001F8000634C4B /* AppDelegate.swift */; };
 		2ED7D7F229001F8000634C4B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7D7F129001F8000634C4B /* SceneDelegate.swift */; };
@@ -37,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E4994082905678E0067D443 /* FlagKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +118,9 @@
 			dependencies = (
 			);
 			name = "Dual Temp";
+			packageProductDependencies = (
+				2E4994072905678E0067D443 /* FlagKit */,
+			);
 			productName = "Dual Temp";
 			productReference = 2ED7D7EC29001F8000634C4B /* Dual Temp.app */;
 			productType = "com.apple.product-type.application";
@@ -144,6 +149,9 @@
 				Base,
 			);
 			mainGroup = 2ED7D7E329001F7F00634C4B;
+			packageReferences = (
+				2E4994062905678E0067D443 /* XCRemoteSwiftPackageReference "FlagKit" */,
+			);
 			productRefGroup = 2ED7D7ED29001F8000634C4B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -406,6 +414,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2E4994062905678E0067D443 /* XCRemoteSwiftPackageReference "FlagKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/madebybowtie/FlagKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2E4994072905678E0067D443 /* FlagKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2E4994062905678E0067D443 /* XCRemoteSwiftPackageReference "FlagKit" */;
+			productName = FlagKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2ED7D7E429001F7F00634C4B /* Project object */;
 }

@@ -16,6 +16,7 @@ struct WeatherData: Codable {
     let visibility: Int
     let sys: Sys
     let timezone: Int
+    let coord: Coord
 }
 
 struct Main: Codable {
@@ -38,8 +39,13 @@ struct Wind: Codable {
 struct Sys: Codable {
     let sunrise: Double
     let sunset: Double
+    let country: String
 }
 
+struct Coord: Codable {
+    let lon: Double
+    let lat: Double
+}
 //MARK: - bottom section
 
 // feels like

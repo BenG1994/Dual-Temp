@@ -21,6 +21,9 @@ struct WeatherModel {
     let sunrise: Double
     let sunset: Double
     let timezone: Int
+    let country: String
+    let latitude: Double
+    let longitude: Double
     
     func replaceSpaces(cityName: String) -> String {
         let correctCityName = cityName.replacingOccurrences(of: " ", with: "+")
