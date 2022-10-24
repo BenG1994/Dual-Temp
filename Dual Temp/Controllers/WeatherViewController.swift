@@ -47,6 +47,11 @@ class WeatherViewController: UIViewController {
         super.viewDidLoad()
         var flag = Flag(countryCode: "US")!
         
+//        if let unitsValue = userDefaults.value(forKey: "UnitsLabel") as? String {
+//            unitsChanged.currentTitle = "\(unitsValue)"
+//        }
+            
+        
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
@@ -58,6 +63,7 @@ class WeatherViewController: UIViewController {
         unitsChanged.layer.cornerRadius = 10
         flagImage.image = flag.originalImage
         timezoneLabel.text = "GMT"
+        unitsChanged.setTitle(userDefaults.value(forKey: "UnitsLabel") as! String, for: UIControl.State.normal)
         
         //        unitsChanged.setTitle("Metric", for: UIControl.State.normal)
     }
@@ -78,7 +84,7 @@ class WeatherViewController: UIViewController {
 //                    self.visibilityLabel.text = "\(newVisibility)km"
 //                    self.windSpeedLabel.text = "\(weather.windSpeedString)km/h"
 //                }
-//                
+//
 //            }
         }else {
             sender.setTitle("Imperial", for: UIControl.State.normal)
@@ -95,7 +101,7 @@ class WeatherViewController: UIViewController {
 //                }
 //            }
         }
-        userDefaults.setValue(sender.currentTitle, forKey: "UnitsLabel")
+        userDefaults.setValue(sender.currentTitle!, forKey: "UnitsLabel")
         let units = sender.currentTitle!
         unitsChanged.setTitle(units, for: UIControl.State.normal)
         print (units)
