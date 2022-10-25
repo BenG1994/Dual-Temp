@@ -77,14 +77,14 @@ class WeatherViewController: UIViewController {
         if (sender.currentTitle == "Imperial") {
             sender.setTitle("Metric", for: UIControl.State.normal)
             
-//            func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel){
+//            func didUpdateWeatherButtonM(_ weatherManager: WeatherManager, weather: WeatherModel){
 //                DispatchQueue.main.async {
 //                    var newVisibility = weather.visibility/1000
 //                    self.feelsLikeLabel.text = "\(weather.feelsLikeString)°C"
 //                    self.visibilityLabel.text = "\(newVisibility)km"
 //                    self.windSpeedLabel.text = "\(weather.windSpeedString)km/h"
 //                }
-//
+
 //            }
         }else {
             sender.setTitle("Imperial", for: UIControl.State.normal)
@@ -197,6 +197,7 @@ extension WeatherViewController: WeatherManagerDelegate {
         DispatchQueue.main.async {
             self.temperatureLabelFahrenheit
                 .text = "\(weather.temperatureStringFahrenheit)°F"
+            self.temperatureLabelFahrenheit.textColor = weather.temperatureColorFahrenheit
             
         }
         
@@ -242,6 +243,7 @@ extension WeatherViewController: WeatherManagerDelegate {
             
             
             self.temperatureLabel.text = "\(weather.temperatureString)°C"
+            self.temperatureLabel.textColor = weather.temperatureColorCelsius
             self.timezoneLabel.text = timeZoneIdentifier
             
             self.humidityLabel.text = "\(weather.humidity)%"

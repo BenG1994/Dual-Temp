@@ -8,6 +8,7 @@
 
 
 import Foundation
+import UIKit
 
 struct WeatherModel {
     
@@ -91,6 +92,8 @@ struct WeatherModel {
         }
     }
     
+   
+    
     
     
     var visibilityStrength: String {
@@ -108,6 +111,27 @@ struct WeatherModel {
             
         default:
             return "sun.max"
+        }
+    }
+    
+    var temperatureColorCelsius: UIColor {
+        switch temperature {
+        case ...(-17.5):
+            return UIColor.systemPurple
+        case -17.6...0.5:
+            return UIColor.systemBlue
+        case 0.6...9.5:
+            return UIColor.systemGreen
+        case 9.6...24.5:
+            return UIColor.systemYellow
+        case 24.6...29.5:
+            return  UIColor.orange
+        case 29.6...35.5:
+            return UIColor.systemRed
+        case 35.6...:
+            return UIColor.systemBrown
+        default:
+            return UIColor.black
         }
     }
     
@@ -174,6 +198,27 @@ struct WeatherModelFahrenheit {
             
             
             
+        }
+    }
+    
+    var temperatureColorFahrenheit: UIColor {
+        switch temperatureFahrenheit {
+        case ...0.5:
+            return UIColor.systemPurple
+        case 0.6...32.5:
+            return UIColor.systemBlue
+        case 32.6...49.5:
+            return UIColor.systemGreen
+        case 49.6...75.5:
+            return UIColor.systemYellow
+        case 75.6...85.5:
+            return  UIColor.orange
+        case 85.6...95.5:
+            return UIColor.systemRed
+        case 95.6...:
+            return UIColor.systemBrown
+        default:
+            return UIColor.black
         }
     }
 }
