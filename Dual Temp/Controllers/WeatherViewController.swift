@@ -55,15 +55,18 @@ class WeatherViewController: UIViewController {
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
-        
+        locationManager.startUpdatingLocation()
+        print (locationManager.location)
+        locationManager.stopUpdatingLocation()
+//        locationManager.requestLocation()
+        unitsChanged.setTitle("Imperial", for: UIControl.State.normal)
         
         weatherManager.delegate = self
         searchTextField.delegate = self
         unitsChanged.layer.cornerRadius = 10
         flagImage.image = flag.originalImage
         timezoneLabel.text = "GMT"
-        unitsChanged.setTitle(userDefaults.value(forKey: "UnitsLabel") as! String, for: UIControl.State.normal)
+        unitsChanged.setTitle(userDefaults.value(forKey: "UnitsLabel") as? String, for: UIControl.State.normal)
         
         //        unitsChanged.setTitle("Metric", for: UIControl.State.normal)
     }
@@ -164,6 +167,7 @@ extension WeatherViewController: UITextFieldDelegate {
             
             let searchName =  searchTextField.text!
             let searchNameTextField = searchName.replacingOccurrences(of: " ", with: "+")
+//            let searchNameTextFieldFinal = searchNameTextField.replacingOccurrences(of: "Arrondissement de ", with: "")
             
             weatherManager.fetchWeather(cityName: searchNameTextField)
             weatherManager.fetchWeatherFahrenheit(cityName: searchNameTextField)
