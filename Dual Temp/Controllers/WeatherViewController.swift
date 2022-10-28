@@ -33,11 +33,9 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var flagImage: UIImageView!
     
     var weatherManager = WeatherManager()
-    //    var weather = WeatherModel(conditionId: Int, cityName: String, temperature: Double, feels_like: Double, visibility: Int, humidity: Int, wind: Double, sunrise: Double, sunset: Double, timezone: Int, country: String, latitude: Double, longitude: Double)
-    
-    //    var weatherManagerFahrenheit = WeatherManagerFahrenheit()
+
     let locationManager = CLLocationManager()
-    //    let locationManagerFahrenheit = CLLocationManager()
+
     
     let userDefaults = UserDefaults()
     
@@ -49,18 +47,16 @@ class WeatherViewController: UIViewController {
         super.viewDidLoad()
         let flag = Flag(countryCode: "US")!
         
-//        if let unitsValue = userDefaults.value(forKey: "UnitsLabel") as? String {
-//            unitsChanged.currentTitle = "\(unitsValue)"
-//        }
+
     
             
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-//        print (locationManager.location)
+
         locationManager.stopUpdatingLocation()
-//        locationManager.requestLocation()
+
         unitsChanged.setTitle("Imperial", for: UIControl.State.normal)
         
         weatherManager.delegate = self
@@ -71,48 +67,27 @@ class WeatherViewController: UIViewController {
     
         
         
-//        let lastLocation = userDefaults.string(forKey: "CityLabel")
-//        cityLabel.setValue(lastLocation, forKey: "CityLabel")
+
         
         unitsChanged.setTitle(userDefaults.value(forKey: "UnitsLabel") as? String, for: UIControl.State.normal)
         
-        //        unitsChanged.setTitle("Metric", for: UIControl.State.normal)
+    
     }
     
     
     @IBAction func locationPressed(_ sender: UIButton) {
         locationManager.startUpdatingLocation()
-//        print (locationManager.location)
-//        locationManager.stopUpdatingLocation()
+
     }
     
     @IBAction func unitsPressed(_ sender: UIButton) {
         if (sender.currentTitle == "Imperial") {
             sender.setTitle("Metric", for: UIControl.State.normal)
             
-//            func didUpdateWeatherButtonM(_ weatherManager: WeatherManager, weather: WeatherModel){
-//                DispatchQueue.main.async {
-//                    var newVisibility = weather.visibility/1000
-//                    self.feelsLikeLabel.text = "\(weather.feelsLikeString)°C"
-//                    self.visibilityLabel.text = "\(newVisibility)km"
-//                    self.windSpeedLabel.text = "\(weather.windSpeedString)km/h"
-//                }
 
-//            }
         }else {
             sender.setTitle("Imperial", for: UIControl.State.normal)
             
-//            func didUpdateWeatherFahrenheit(_weatherManager: WeatherManager, weather: WeatherModelFahrenheit){
-//                DispatchQueue.main.async {
-//                    var newVisibility = Double(weather.visibilityImperial) * 0.000621371192237
-//                    var visibilityStringImperialNew: String {
-//                        return String (format: "%.0f", newVisibility)
-//                    }
-//                    self.feelsLikeLabel.text = "\(weather.feelsLikeStringFahrenheit)°F"
-//                    self.windSpeedLabel.text = "\(weather.windSpeedStringImperial)mp/h"
-//                    self.visibilityLabel.text = "\(visibilityStringImperialNew)m"
-//                }
-//            }
         }
         userDefaults.setValue(sender.currentTitle!, forKey: "UnitsLabel")
         let units = sender.currentTitle!
@@ -155,10 +130,6 @@ extension WeatherViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        //            let searchName =  searchTextField.text!
-        //            let searchNameTextField = searchName.replacingOccurrences(of: " ", with: "+")
-        
-        //            print (searchNameTextField)
         searchTextField.endEditing(true)
         return true
     }
@@ -180,7 +151,6 @@ extension WeatherViewController: UITextFieldDelegate {
             
             weatherManager.fetchWeather(cityName: searchNameTextField)
             weatherManager.fetchWeatherFahrenheit(cityName: searchNameTextField)
-//            cityLabel.setValue(searchNameTextField, forKey: "CityLabel")
         }
         searchTextField.text = ""
         
@@ -216,8 +186,8 @@ extension WeatherViewController: WeatherManagerDelegate {
             
         }
         
-        if unitsChanged.currentTitle == "Imperial"{
             DispatchQueue.main.async {
+                if self.unitsChanged.currentTitle == "Imperial"{
                 self.feelsLikeLabel.text = "\(weather.feelsLikeStringFahrenheit)°F"
                 self.windSpeedLabel.text = "\(weather.windSpeedStringImperial)mp/h"
                 self.visibilityLabel.text = "\(visibilityStringImperialNew)m"
@@ -270,8 +240,9 @@ extension WeatherViewController: WeatherManagerDelegate {
             self.sunriseLabel.text = "\(formattedSunriseTime)"
         }
         
-        if unitsChanged.currentTitle == "Metric"{
+
             DispatchQueue.main.async {
+                if self.unitsChanged.currentTitle == "Metric"{
                 self.feelsLikeLabel.text = "\(weather.feelsLikeString)°C"
                 self.feelsLikeImageView.image = UIImage(systemName: weather.conditionName)
                 self.visibilityLabel.text = "\(newVisibility)km"
@@ -287,9 +258,6 @@ extension WeatherViewController: WeatherManagerDelegate {
     func didFailWithError(error: Error) {
         print (error)
     }
-    
-    
-    //MARK: - dismiss keyboard
     
 
      }
