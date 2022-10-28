@@ -41,22 +41,24 @@ class WeatherViewController: UIViewController {
     
     let userDefaults = UserDefaults()
     
+   
+    
     override func viewDidLoad() {
         
         
         super.viewDidLoad()
-        var flag = Flag(countryCode: "US")!
+        let flag = Flag(countryCode: "US")!
         
 //        if let unitsValue = userDefaults.value(forKey: "UnitsLabel") as? String {
 //            unitsChanged.currentTitle = "\(unitsValue)"
 //        }
+    
             
-        
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        print (locationManager.location)
+//        print (locationManager.location)
         locationManager.stopUpdatingLocation()
 //        locationManager.requestLocation()
         unitsChanged.setTitle("Imperial", for: UIControl.State.normal)
@@ -66,6 +68,8 @@ class WeatherViewController: UIViewController {
         unitsChanged.layer.cornerRadius = 10
         flagImage.image = flag.originalImage
         timezoneLabel.text = "GMT"
+    
+        
         
 //        let lastLocation = userDefaults.string(forKey: "CityLabel")
 //        cityLabel.setValue(lastLocation, forKey: "CityLabel")
@@ -169,7 +173,7 @@ extension WeatherViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textfield: UITextField) {
-        if let city = searchTextField.text {
+        if searchTextField.text != nil {
             
             let searchName =  searchTextField.text!
             let searchNameTextField = searchName.replacingOccurrences(of: " ", with: "+")
@@ -198,7 +202,7 @@ extension WeatherViewController: WeatherManagerDelegate {
     
     
     func didUpdateWeatherFahrenheit(_weatherManager: WeatherManager, weather: WeatherModelFahrenheit) {
-        var newVisibility = Double(weather.visibilityImperial) * 0.000621371192237
+        let newVisibility = Double(weather.visibilityImperial) * 0.000621371192237
         
         var visibilityStringImperialNew: String {
             return String (format: "%.0f", newVisibility)
@@ -224,7 +228,7 @@ extension WeatherViewController: WeatherManagerDelegate {
     
     
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
-        var newVisibility = weather.visibility/1000
+        let newVisibility = weather.visibility/1000
         let countryCode = weather.country
         let flag = Flag(countryCode: countryCode)!
         
@@ -283,4 +287,10 @@ extension WeatherViewController: WeatherManagerDelegate {
     func didFailWithError(error: Error) {
         print (error)
     }
-}
+    
+    
+    //MARK: - dismiss keyboard
+    
+
+     }
+    
