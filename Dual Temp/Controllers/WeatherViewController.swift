@@ -96,6 +96,13 @@ class WeatherViewController: UIViewController {
         
         
     }
+    
+    
+    @IBAction func buttonForCodes(_ sender: UIButton) {
+        
+        self.performSegue(withIdentifier: K.segueIdentifier, sender: self)
+    }
+    
 }
 
 
