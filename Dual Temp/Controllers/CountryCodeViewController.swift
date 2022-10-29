@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import FlagKit
 
 class CountryCodeViewController: UIViewController {
     
@@ -16,6 +15,8 @@ class CountryCodeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        
+        self.tableView.layer.cornerRadius = 10.0
         
     }
     

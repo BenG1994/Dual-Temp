@@ -33,13 +33,13 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var flagImage: UIImageView!
     
     var weatherManager = WeatherManager()
-
+    
     let locationManager = CLLocationManager()
-
+    
     
     let userDefaults = UserDefaults()
     
-   
+    
     
     override func viewDidLoad() {
         
@@ -47,16 +47,16 @@ class WeatherViewController: UIViewController {
         super.viewDidLoad()
         let flag = Flag(countryCode: "US")!
         
-
-    
-            
+        
+        
+        
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-
+        
         locationManager.stopUpdatingLocation()
-
+        
         unitsChanged.setTitle("Imperial", for: UIControl.State.normal)
         
         weatherManager.delegate = self
@@ -64,27 +64,25 @@ class WeatherViewController: UIViewController {
         unitsChanged.layer.cornerRadius = 10
         flagImage.image = flag.originalImage
         timezoneLabel.text = "GMT"
-    
         
-        
-
         
         unitsChanged.setTitle(userDefaults.value(forKey: "UnitsLabel") as? String, for: UIControl.State.normal)
         
-    
+        
     }
     
     
     @IBAction func locationPressed(_ sender: UIButton) {
         locationManager.startUpdatingLocation()
-
+        
     }
     
     @IBAction func unitsPressed(_ sender: UIButton) {
         if (sender.currentTitle == "Imperial") {
             sender.setTitle("Metric", for: UIControl.State.normal)
             
-
+            
+            
         }else {
             sender.setTitle("Imperial", for: UIControl.State.normal)
             
@@ -92,7 +90,6 @@ class WeatherViewController: UIViewController {
         userDefaults.setValue(sender.currentTitle!, forKey: "UnitsLabel")
         let units = sender.currentTitle!
         unitsChanged.setTitle(units, for: UIControl.State.normal)
-        print (units)
         
         
     }
@@ -179,6 +176,7 @@ extension WeatherViewController: WeatherManagerDelegate {
     
     
     func didUpdateWeatherFahrenheit(_weatherManager: WeatherManager, weather: WeatherModelFahrenheit) {
+        
         let newVisibility = Double(weather.visibilityImperial) * 0.000621371192237
         
         var visibilityStringImperialNew: String {
@@ -193,8 +191,8 @@ extension WeatherViewController: WeatherManagerDelegate {
             
         }
         
-            DispatchQueue.main.async {
-                if self.unitsChanged.currentTitle == "Imperial"{
+        DispatchQueue.main.async {
+            if self.unitsChanged.currentTitle == "Imperial"{
                 self.feelsLikeLabel.text = "\(weather.feelsLikeStringFahrenheit)°F"
                 self.windSpeedLabel.text = "\(weather.windSpeedStringImperial)mp/h"
                 self.visibilityLabel.text = "\(visibilityStringImperialNew)m"
@@ -247,14 +245,13 @@ extension WeatherViewController: WeatherManagerDelegate {
             self.sunriseLabel.text = "\(formattedSunriseTime)"
         }
         
-
-            DispatchQueue.main.async {
-                if self.unitsChanged.currentTitle == "Metric"{
+        
+        DispatchQueue.main.async {
+            if self.unitsChanged.currentTitle == "Metric"{
                 self.feelsLikeLabel.text = "\(weather.feelsLikeString)°C"
                 self.feelsLikeImageView.image = UIImage(systemName: weather.conditionName)
                 self.visibilityLabel.text = "\(newVisibility)km"
                 self.visibilityImageView.image = UIImage(systemName: weather.visibilityStrength)
-                
                 self.windSpeedLabel.text = "\(weather.windSpeedString)km/h"
                 
             }
@@ -266,6 +263,6 @@ extension WeatherViewController: WeatherManagerDelegate {
         print (error)
     }
     
-
-     }
     
+}
+
