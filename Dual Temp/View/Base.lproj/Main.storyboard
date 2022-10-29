@@ -49,6 +49,7 @@
                                                         <rect key="frame" x="52" y="0.0" width="253" height="40"/>
                                                         <color key="backgroundColor" systemColor="systemFillColor"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="width" constant="253" id="Gyf-C6-lhN"/>
                                                             <constraint firstAttribute="height" constant="40" id="SKQ-80-uZl"/>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="253" id="uhu-G3-K38"/>
                                                         </constraints>
@@ -412,13 +413,24 @@
                                     <constraint firstItem="kmT-lo-ej5" firstAttribute="top" secondItem="WBo-zf-f21" secondAttribute="bottom" constant="21" id="jZy-mW-52f"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ox-e2-7WW">
+                                <rect key="frame" x="172" y="775" width="47.666666666666657" height="34.333333333333371"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="chevron.up" catalog="system"/>
+                                <connections>
+                                    <segue destination="UtY-UC-T2K" kind="show" identifier="SwipeForCodes" id="U2U-8p-L3U"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="Background Color"/>
                         <constraints>
+                            <constraint firstItem="7Ox-e2-7WW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="62c-Ek-wkm"/>
                             <constraint firstItem="IOh-Ma-9ZS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="GFz-iZ-ts5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="IOh-Ma-9ZS" secondAttribute="bottom" constant="35" id="SIz-mQ-Y6Z"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IOh-Ma-9ZS" secondAttribute="trailing" id="nOe-Mk-0CJ"/>
+                            <constraint firstItem="7Ox-e2-7WW" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="pVt-Vk-CQy"/>
                             <constraint firstItem="IOh-Ma-9ZS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wlh-Mk-JkN"/>
                         </constraints>
                     </view>
@@ -445,8 +457,25 @@
             </objects>
             <point key="canvasLocation" x="64.615384615384613" y="-34.123222748815166"/>
         </scene>
+        <!--Country Code View Controller-->
+        <scene sceneID="hHn-pk-zjA">
+            <objects>
+                <viewController id="UtY-UC-T2K" customClass="CountryCodeViewController" customModule="Dual_Temp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qSJ-lC-Bs0">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="EW9-hk-V6k"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Thd-FX-sWK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s0E-wH-C1o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="907" y="-15"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="chevron.up" catalog="system" width="128" height="70"/>
         <image name="humidity" catalog="system" width="128" height="96"/>
         <image name="location.circle.fill" catalog="system" width="128" height="123"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
@@ -459,6 +488,9 @@
         </namedColor>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemFillColor">
             <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
