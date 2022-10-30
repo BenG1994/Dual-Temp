@@ -45,13 +45,12 @@
                                                             <action selector="locationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="046-LC-iz0"/>
                                                         </connections>
                                                     </button>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p2u-Qa-DXw">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="right" clearsOnBeginEditing="YES" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p2u-Qa-DXw">
                                                         <rect key="frame" x="52" y="0.0" width="253" height="40"/>
                                                         <color key="backgroundColor" systemColor="systemFillColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="253" id="Gyf-C6-lhN"/>
                                                             <constraint firstAttribute="height" constant="40" id="SKQ-80-uZl"/>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="253" id="uhu-G3-K38"/>
+                                                            <constraint firstAttribute="width" priority="253" constant="253" id="uhu-G3-K38"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="search"/>
@@ -500,7 +499,7 @@
                                         </prototypes>
                                     </tableView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="whU-3V-6Uu">
-                                        <rect key="frame" x="18" y="33" width="355" height="158"/>
+                                        <rect key="frame" x="17.666666666666657" y="33" width="355" height="158"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PhQ-Co-U40">
                                                 <rect key="frame" x="0.0" y="0.0" width="355" height="105.33333333333333"/>
@@ -513,14 +512,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Example: Rome, IT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKr-28-aE6">
-                                                <rect key="frame" x="86.666666666666686" y="130.33333333333334" width="182" height="27.666666666666657"/>
+                                                <rect key="frame" x="86.333333333333314" y="130.33333333333334" width="182" height="27.666666666666657"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="PhQ-Co-U40" firstAttribute="top" secondItem="whU-3V-6Uu" secondAttribute="top" constant="40" id="F8q-OR-YsR"/>
                                             <constraint firstAttribute="width" constant="355" id="hi1-Yk-hfd"/>
                                         </constraints>
                                     </stackView>
@@ -528,11 +526,8 @@
                                 <color key="backgroundColor" name="Background Color"/>
                                 <constraints>
                                     <constraint firstItem="XKI-YT-al8" firstAttribute="leading" secondItem="k8g-3T-6XU" secondAttribute="leading" id="0fG-iQ-ehR"/>
-                                    <constraint firstAttribute="height" constant="787" id="1nk-1m-n33"/>
                                     <constraint firstItem="whU-3V-6Uu" firstAttribute="centerX" secondItem="k8g-3T-6XU" secondAttribute="centerX" id="72M-mC-U6O"/>
-                                    <constraint firstItem="whU-3V-6Uu" firstAttribute="leading" secondItem="k8g-3T-6XU" secondAttribute="leading" constant="18" id="CIr-Fc-W7R"/>
                                     <constraint firstItem="XKI-YT-al8" firstAttribute="top" secondItem="whU-3V-6Uu" secondAttribute="bottom" constant="20" id="HbU-d9-ciT"/>
-                                    <constraint firstAttribute="trailing" secondItem="whU-3V-6Uu" secondAttribute="trailing" constant="17" id="JFD-PF-luv"/>
                                     <constraint firstAttribute="bottom" secondItem="XKI-YT-al8" secondAttribute="bottom" id="MmC-WG-8KD"/>
                                     <constraint firstAttribute="trailing" secondItem="XKI-YT-al8" secondAttribute="trailing" id="qFj-jk-36Z"/>
                                     <constraint firstItem="whU-3V-6Uu" firstAttribute="top" secondItem="k8g-3T-6XU" secondAttribute="top" constant="33" id="v8k-LH-LsV"/>

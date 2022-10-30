@@ -81,12 +81,18 @@ class WeatherViewController: UIViewController {
         if (sender.currentTitle == "Imperial") {
             sender.setTitle("Metric", for: UIControl.State.normal)
             
-            
+        
             
         }else {
             sender.setTitle("Imperial", for: UIControl.State.normal)
+
+                
+            }
             
-        }
+            
+            
+            
+    
         userDefaults.setValue(sender.currentTitle!, forKey: "UnitsLabel")
         let units = sender.currentTitle!
         unitsChanged.setTitle(units, for: UIControl.State.normal)
