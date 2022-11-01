@@ -12,8 +12,6 @@ import FlagKit
 
 class WeatherViewController: UIViewController {
     
-    
-    
     @IBOutlet weak var conditionImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
@@ -43,20 +41,16 @@ class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        
         super.viewDidLoad()
+
         let flag = Flag(countryCode: "US")!
-        
-        
-        
-        
+    
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        
         locationManager.stopUpdatingLocation()
-        
+    
         unitsChanged.setTitle("Imperial", for: UIControl.State.normal)
         
         weatherManager.delegate = self
@@ -68,9 +62,17 @@ class WeatherViewController: UIViewController {
         
         unitsChanged.setTitle(userDefaults.value(forKey: "UnitsLabel") as? String, for: UIControl.State.normal)
         
+//        let tap = UITapGestureRecognizer(target: view, action: #selector(searchTextField.endEditing))
+//                tap.cancelsTouchesInView = false
+//                view.addGestureRecognizer(tap)
+//        searchTextField.text = ""
         
+        
+
     }
-    
+
+
+   
     
     @IBAction func locationPressed(_ sender: UIButton) {
         locationManager.startUpdatingLocation()
@@ -81,18 +83,18 @@ class WeatherViewController: UIViewController {
         if (sender.currentTitle == "Imperial") {
             sender.setTitle("Metric", for: UIControl.State.normal)
             
-        
+            
             
         }else {
             sender.setTitle("Imperial", for: UIControl.State.normal)
-
-                
-            }
             
             
-            
-            
-    
+        }
+        
+        
+        
+        
+        
         userDefaults.setValue(sender.currentTitle!, forKey: "UnitsLabel")
         let units = sender.currentTitle!
         unitsChanged.setTitle(units, for: UIControl.State.normal)
@@ -105,6 +107,8 @@ class WeatherViewController: UIViewController {
         
         self.performSegue(withIdentifier: K.segueIdentifier, sender: self)
     }
+    
+    
     
 }
 
@@ -144,14 +148,14 @@ extension WeatherViewController: UITextFieldDelegate {
         return true
     }
     
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if textField.text != "" {
-            return true
-        }else {
-            textField.placeholder = "Search for a place"
-            return false
-        }
-    }
+//    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+//        if textField.text != "" {
+//            return true
+//        }else {
+//            textField.placeholder = "Search for a place"
+//            return false
+//        }
+//    }
     
     func textFieldDidEndEditing(_ textfield: UITextField) {
         if searchTextField.text != nil {
@@ -173,7 +177,15 @@ extension WeatherViewController: UITextFieldDelegate {
         return twoWordName
     }
     
+//    @objc
+//    private func hideKeyboard() {
+//        self.view.endEditing(true)
+//    }
+    
+    
 }
+
+
 
 //MARK: - WeatherManagerDelegate
 
@@ -271,4 +283,16 @@ extension WeatherViewController: WeatherManagerDelegate {
     
     
 }
+
+
+//extension WeatherViewController{
+//    //    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//    //        self.searchTextField.endEditing(true)
+//    //    }
+//
+//
+//
+//}
+
+
 
