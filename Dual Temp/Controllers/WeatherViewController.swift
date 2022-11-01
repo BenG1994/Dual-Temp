@@ -12,8 +12,6 @@ import FlagKit
 
 class WeatherViewController: UIViewController {
     
-    
-    
     @IBOutlet weak var conditionImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
@@ -33,30 +31,27 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var flagImage: UIImageView!
     
     var weatherManager = WeatherManager()
-
+    
     let locationManager = CLLocationManager()
-
+    
     
     let userDefaults = UserDefaults()
     
-   
+    
     
     override func viewDidLoad() {
         
-        
         super.viewDidLoad()
-        let flag = Flag(countryCode: "US")!
-        
 
+        let flag = Flag(countryCode: "US")!
     
-            
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         print(locationManager.location)
         locationManager.stopUpdatingLocation()
-
+    
         unitsChanged.setTitle("Imperial", for: UIControl.State.normal)
         
         weatherManager.delegate = self
@@ -64,38 +59,58 @@ class WeatherViewController: UIViewController {
         unitsChanged.layer.cornerRadius = 10
         flagImage.image = flag.originalImage
         timezoneLabel.text = "GMT"
-    
         
-        
-
         
         unitsChanged.setTitle(userDefaults.value(forKey: "UnitsLabel") as? String, for: UIControl.State.normal)
         
-    
+//        let tap = UITapGestureRecognizer(target: view, action: #selector(searchTextField.endEditing))
+//                tap.cancelsTouchesInView = false
+//                view.addGestureRecognizer(tap)
+//        searchTextField.text = ""
+        
+        
+
     }
-    
+
+
+   
     
     @IBAction func locationPressed(_ sender: UIButton) {
         locationManager.startUpdatingLocation()
-
+        
     }
     
     @IBAction func unitsPressed(_ sender: UIButton) {
         if (sender.currentTitle == "Imperial") {
             sender.setTitle("Metric", for: UIControl.State.normal)
             
-
+            
+            
         }else {
             sender.setTitle("Imperial", for: UIControl.State.normal)
             
+            
         }
+        
+        
+        
+        
+        
         userDefaults.setValue(sender.currentTitle!, forKey: "UnitsLabel")
         let units = sender.currentTitle!
         unitsChanged.setTitle(units, for: UIControl.State.normal)
-        print (units)
         
         
     }
+    
+    
+    @IBAction func buttonForCodes(_ sender: UIButton) {
+        
+        self.performSegue(withIdentifier: K.segueIdentifier, sender: self)
+    }
+    
+    
+    
 }
 
 
@@ -134,14 +149,14 @@ extension WeatherViewController: UITextFieldDelegate {
         return true
     }
     
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if textField.text != "" {
-            return true
-        }else {
-            textField.placeholder = "Search for a place"
-            return false
-        }
-    }
+//    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+//        if textField.text != "" {
+//            return true
+//        }else {
+//            textField.placeholder = "Search for a place"
+//            return false
+//        }
+//    }
     
     func textFieldDidEndEditing(_ textfield: UITextField) {
         if searchTextField.text != nil {
@@ -163,7 +178,15 @@ extension WeatherViewController: UITextFieldDelegate {
         return twoWordName
     }
     
+//    @objc
+//    private func hideKeyboard() {
+//        self.view.endEditing(true)
+//    }
+    
+    
 }
+
+
 
 //MARK: - WeatherManagerDelegate
 
@@ -172,6 +195,7 @@ extension WeatherViewController: WeatherManagerDelegate {
     
     
     func didUpdateWeatherFahrenheit(_weatherManager: WeatherManager, weather: WeatherModelFahrenheit) {
+        
         let newVisibility = Double(weather.visibilityImperial) * 0.000621371192237
         
         var visibilityStringImperialNew: String {
@@ -186,8 +210,8 @@ extension WeatherViewController: WeatherManagerDelegate {
             
         }
         
-            DispatchQueue.main.async {
-                if self.unitsChanged.currentTitle == "Imperial"{
+        DispatchQueue.main.async {
+            if self.unitsChanged.currentTitle == "Imperial"{
                 self.feelsLikeLabel.text = "\(weather.feelsLikeStringFahrenheit)°F"
                 self.windSpeedLabel.text = "\(weather.windSpeedStringImperial)mp/h"
                 self.visibilityLabel.text = "\(visibilityStringImperialNew)m"
@@ -240,14 +264,13 @@ extension WeatherViewController: WeatherManagerDelegate {
             self.sunriseLabel.text = "\(formattedSunriseTime)"
         }
         
-
-            DispatchQueue.main.async {
-                if self.unitsChanged.currentTitle == "Metric"{
+        
+        DispatchQueue.main.async {
+            if self.unitsChanged.currentTitle == "Metric"{
                 self.feelsLikeLabel.text = "\(weather.feelsLikeString)°C"
                 self.feelsLikeImageView.image = UIImage(systemName: weather.conditionName)
                 self.visibilityLabel.text = "\(newVisibility)km"
                 self.visibilityImageView.image = UIImage(systemName: weather.visibilityStrength)
-                
                 self.windSpeedLabel.text = "\(weather.windSpeedString)km/h"
                 
             }
@@ -259,6 +282,18 @@ extension WeatherViewController: WeatherManagerDelegate {
         print (error)
     }
     
-
-     }
     
+}
+
+
+//extension WeatherViewController{
+//    //    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//    //        self.searchTextField.endEditing(true)
+//    //    }
+//
+//
+//
+//}
+
+
+

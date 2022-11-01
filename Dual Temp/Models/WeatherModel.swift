@@ -116,7 +116,9 @@ struct WeatherModel {
     
     var temperatureColorCelsius: UIColor {
         switch temperature {
-        case ...(-17.59):
+        case ...(-31.94):
+            return UIColor.white
+        case (-31.93)...(-17.59):
             return UIColor.systemPurple
         case -17.6...0.59:
             return UIColor.systemBlue
@@ -128,8 +130,11 @@ struct WeatherModel {
             return  UIColor.orange
         case 29.6...35.59:
             return UIColor.systemRed
-        case 35.6...:
+        case 35.6...49.59:
             return UIColor.systemBrown
+        case 49.6...:
+            return UIColor.black
+
         default:
             return UIColor.black
         }
@@ -203,7 +208,9 @@ struct WeatherModelFahrenheit {
     
     var temperatureColorFahrenheit: UIColor {
         switch temperatureFahrenheit {
-        case ...0.59:
+        case ...(-25.5):
+            return UIColor.white
+        case (-24.49)...0.59:
             return UIColor.systemPurple
         case 0.6...32.59:
             return UIColor.systemBlue
@@ -215,8 +222,11 @@ struct WeatherModelFahrenheit {
             return  UIColor.orange
         case 85.6...95.59:
             return UIColor.systemRed
-        case 95.6...:
+        case 95.6...120.59:
             return UIColor.systemBrown
+        case 120.6...:
+            return UIColor.black
+
         default:
             return UIColor.black
         }
