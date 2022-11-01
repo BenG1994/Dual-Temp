@@ -49,7 +49,7 @@ class WeatherViewController: UIViewController {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        print(locationManager.location)
+        
         locationManager.stopUpdatingLocation()
     
         unitsChanged.setTitle("Imperial", for: UIControl.State.normal)
