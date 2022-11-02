@@ -63,12 +63,7 @@ class WeatherViewController: UIViewController {
         
         unitsChanged.setTitle(userDefaults.value(forKey: "UnitsLabel") as? String, for: UIControl.State.normal)
         
-//        let tap = UITapGestureRecognizer(target: view, action: #selector(searchTextField.endEditing))
-//                tap.cancelsTouchesInView = false
-//                view.addGestureRecognizer(tap)
-//        searchTextField.text = ""
-        
-        
+
 
     }
 
@@ -80,28 +75,9 @@ class WeatherViewController: UIViewController {
         
     }
     
-    @IBAction func unitsPressed(_ sender: UIButton) {
-        if (sender.currentTitle == "Imperial") {
-            sender.setTitle("Metric", for: UIControl.State.normal)
-            
-            
-            
-        }else {
-            sender.setTitle("Imperial", for: UIControl.State.normal)
-            
-            
-        }
-        
-        
-        
-        
-        
-        userDefaults.setValue(sender.currentTitle!, forKey: "UnitsLabel")
-        let units = sender.currentTitle!
-        unitsChanged.setTitle(units, for: UIControl.State.normal)
-        
-        
-    }
+    
+    
+  
     
     
     @IBAction func buttonForCodes(_ sender: UIButton) {
@@ -178,10 +154,6 @@ extension WeatherViewController: UITextFieldDelegate {
         return twoWordName
     }
     
-//    @objc
-//    private func hideKeyboard() {
-//        self.view.endEditing(true)
-//    }
     
     
 }
@@ -191,7 +163,66 @@ extension WeatherViewController: UITextFieldDelegate {
 //MARK: - WeatherManagerDelegate
 
 extension WeatherViewController: WeatherManagerDelegate {
+    func didFailWithError(error: Error) {
+        print (error)
+    }
     
+    @IBAction func unitsPressed(_ sender: UIButton) {
+        if sender.currentTitle == "Imperial" {
+            sender.setTitle("Metric", for: UIControl.State.normal)
+            cityLabel.text = "Search again"
+            
+          
+    
+    
+            
+            //MARK: - begin shit
+//            func didUpdateWeatherMetric(_ weatherManager: WeatherManager, weather: WeatherModelMetric) {
+//                DispatchQueue.main.async {
+//                    let newVisibility = weather.visibilityMetric/1000
+//                        self.feelsLikeLabel.text = "\(weather.feelsLikeString)°C"
+//                        self.visibilityLabel.text = "\(newVisibility)km"
+//                        self.windSpeedLabel.text = "\(weather.windSpeedString)km/h"
+//
+//
+//                }
+//
+//            }
+            
+            //MARK: - end shit
+        }else {
+            sender.setTitle("Imperial", for: UIControl.State.normal)
+            cityLabel.text = "Search again"
+//            func didUpdateWeatherImperial(_weatherManager: WeatherManager, weather: WeatherModelImperial) {
+//                DispatchQueue.main.async {
+//                    let newVisibility = Double(weather.visibilityImperial) * 0.000621371192237
+//
+//                    var visibilityStringImperialNew: String {
+//                        return String (format: "%.0f", newVisibility)
+//                    }
+//
+//
+//                        self.feelsLikeLabel.text = "\(weather.feelsLikeStringFahrenheit)°F"
+//                        self.windSpeedLabel.text = "\(weather.windSpeedStringImperial)mp/h"
+//                        self.visibilityLabel.text = "\(visibilityStringImperialNew)m"
+//
+//
+//                }
+//
+//            }
+            
+        }
+        
+        
+        
+        
+        
+        userDefaults.setValue(sender.currentTitle!, forKey: "UnitsLabel")
+        let units = sender.currentTitle!
+        unitsChanged.setTitle(units, for: UIControl.State.normal)
+        
+        
+    }
     
     
     func didUpdateWeatherFahrenheit(_weatherManager: WeatherManager, weather: WeatherModelFahrenheit) {
@@ -275,17 +306,19 @@ extension WeatherViewController: WeatherManagerDelegate {
                 
             }
         }
+
+        
+    
+        func didFailWithError(error: Error) {
+            print (error)
+        }
+        
         
     }
     
-    func didFailWithError(error: Error) {
-        print (error)
-    }
-    
+   
     
 }
-
-
 //extension WeatherViewController{
 //    //    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //    //        self.searchTextField.endEditing(true)

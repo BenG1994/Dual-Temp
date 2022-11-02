@@ -11,6 +11,8 @@ import CoreLocation
 protocol WeatherManagerDelegate {
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel)
     func didUpdateWeatherFahrenheit( _weatherManager: WeatherManager, weather: WeatherModelFahrenheit)
+//    func didUpdateWeatherMetric ( _weatherManager: WeatherManager, weather: WeatherModelMetric)
+//    func didUpdateWeatherImperial ( _weatherManager: WeatherManager, weather: WeatherModelImperial)
     func didFailWithError (error:Error)
 }
 
@@ -52,6 +54,17 @@ struct WeatherManager {
         let urlString = "\(weatherURLFahrenheit)&lat=\(latitude)&lon=\(longitude)"
         performRequestFahrenheit(with: urlString)
     }
+    
+//    func fetchWeatherMetric (cityName: String) {
+//        let urlString = "\(weatherURL)&q=\(cityName)"
+//        performRequestMetric(with: urlString)
+//    }
+//
+//
+//    func fetchWeatherMetric(latitude: CLLocationDegrees, longitude: CLLocationDegrees){
+//        let urlString = "\(weatherURL)&lat=\(latitude)&lon=\(longitude)"
+//        performRequestMetric(with: urlString)
+//    }
     
     func performRequest(with urlString: String) {
         if let url = URL(string: urlString){
@@ -155,4 +168,90 @@ struct WeatherManager {
             return nil
         }
     }
+    
+    
+//    //MARK: - Button Press Celsius
+//
+//    func performRequestMetric(with urlString: String) {
+//        if let url = URL(string: urlString){
+//            let session = URLSession(configuration: .default)
+//            let task = session.dataTask(with: url) { (data, response, error) in
+//                if error != nil {
+//                    self.delegate?.didFailWithError(error: error!)
+//                    return
+//                }
+//                if let safeData = data {
+//                    if let weather = self.parseJSONMetric(safeData) {
+//                        self.delegate?.didUpdateWeatherMetric(_weatherManager: self, weather: weather)
+//                    }
+//                }
+//            }
+//            task.resume()
+//        }
+//    }
+//
+//    func parseJSONMetric (_ weatherData: Data) -> WeatherModelMetric? {
+//        let decoder = JSONDecoder()
+//        do {
+//            let decodedData = try decoder.decode(WeatherData.self, from: weatherData)
+//            let feels = decodedData.main.feels_like
+//            let visibility = decodedData.visibility
+//
+//            let wind = decodedData.wind.speed
+//
+//            let weather = WeatherModelMetric(
+//                feelsLikeCelsius: feels,
+//                visibilityMetric: visibility,
+//                windSpeedMetric: wind)
+//
+//            return weather
+//        }catch {
+//            delegate?.didFailWithError(error: error)
+//            return nil
+//        }
+//    }
+//
+//    //MARK: - Press Button Imperial
+//    func performRequestImperial(with urlString: String) {
+//        if let url = URL(string: urlString){
+//            let session = URLSession(configuration: .default)
+//            let task = session.dataTask(with: url) { (data, response, error) in
+//                if error != nil {
+//                    self.delegate?.didFailWithError(error: error!)
+//                    return
+//                }
+//                if let safeData = data {
+//                    if let weather = self.parseJSONImperial(safeData) {
+//                        self.delegate?.didUpdateWeatherImperial(_weatherManager: self, weather: weather)
+//                    }
+//                }
+//            }
+//            task.resume()
+//        }
+//    }
+//
+//    func parseJSONImperial (_ weatherData: Data) -> WeatherModelImperial? {
+//        let decoder = JSONDecoder()
+//        do {
+//            let decodedData = try decoder.decode(WeatherData.self, from: weatherData)
+//            let feels = decodedData.main.feels_like
+//            let visibility = decodedData.visibility
+//
+//            let wind = decodedData.wind.speed
+//
+//            let weather = WeatherModelImperial(
+//                feelsLikeFahrenheit: feels,
+//                visibilityImperial: visibility,
+//                windSpeedImperial: wind)
+//
+//            return weather
+//        }catch {
+//            delegate?.didFailWithError(error: error)
+//            return nil
+//        }
+//    }
+//
 }
+
+
+

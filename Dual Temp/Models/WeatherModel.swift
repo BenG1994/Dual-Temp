@@ -51,9 +51,6 @@ struct WeatherModel {
         return String (format: "%.0f", wind)
     }
     
-//    var rainString: String {
-//        return String (format: "%.0f", rain)
-//    }
     
     var sunsetString: String {
         return String (format: "%.0f", sunset)
@@ -230,5 +227,50 @@ struct WeatherModelFahrenheit {
         default:
             return UIColor.black
         }
+    }
+    
+}
+
+//MARK: - Metric
+
+struct WeatherModelMetric{
+    let feelsLikeCelsius: Double
+    let visibilityMetric: Int
+    let windSpeedMetric: Double
+    
+    
+    var feelsLikeString: String {
+        return String (format: "%.0f", feelsLikeCelsius)
+    }
+    
+    var visibilityString: String {
+        return String (format: "%.0f", visibilityMetric)
+    }
+    
+    
+    var windSpeedString: String {
+        return String (format: "%.0f", windSpeedMetric)
+    }
+}
+
+//MARK: - Imperial
+
+struct WeatherModelImperial{
+    let feelsLikeFahrenheit: Double
+    let visibilityImperial: Int
+    let windSpeedImperial: Double
+    
+    
+    var feelsLikeStringFahrenheit: String {
+        return String (format: "%.0f", feelsLikeFahrenheit)
+    }
+    
+    var visibilityStringImperial: String {
+        return String (format: "%.0f", visibilityImperial)
+    }
+    
+    
+    var windSpeedStringImperial: String {
+        return String (format: "%.0f", windSpeedImperial)
     }
 }
