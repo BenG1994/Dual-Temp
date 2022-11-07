@@ -137,6 +137,89 @@ struct WeatherModel {
         }
     }
     
+    //MARK: - TimeZone Switch
+
+    var timeZoneIndentifier: String {
+        switch timezone{
+        case ...(-39600):
+            return "Pacific/Midway"
+        case ...(-36000):
+            return "Pacific/Honolulu"
+        case ...(-34200):
+            return "Pacific/Marquesas"
+        case ...(-32400):
+            return "America/Anchorage"
+        case ...(-28800):
+            return "America/Vancouver"
+        case ...(-25200):
+            return "America/Denver"
+        case ...(-21600):
+            return "America/Chicago"
+        case ...(-18000):
+            return "America/Bogota"
+        case ...(-14400):
+            return "Atlantic/Bermuda"
+        case ...(-10800):
+            return "America/Santiago"
+        case ...(-7200):
+            return "Atlantic/Noronha"
+        case ...(-3600):
+            return "Atlantic/Azores"
+        case ...0:
+            return "Europe/London"
+        case ...3600:
+            return "Europe/Madrid"
+        case ...7200:
+            return "Europe/Riga"
+        case ...10800:
+            return "Europe/Istanbul"
+        case ...12600:
+            return "Asia/Tehran"
+        case ...14400:
+            return "Asia/Baku"
+        case ...16200:
+            return "Asia/Kabul"
+        case ...18000:
+            return "Asia/Dushanbe"
+        case ...19800:
+            return "Asia/Colombo"
+        case ...20700:
+            return "Asia/Kathmandu"
+        case ...21600:
+            return "Asia/Urumqi"
+        case ...23400:
+            return "Asia/Yangon"
+        case ...25200:
+            return "Asia/Bangkok"
+        case ...28800:
+            return "Asia/Shanghai"
+        case ...31500:
+            return "Australia/Eucla"
+        case ...32400:
+            return "Asia/Seoul"
+        case ...34200:
+            return "Australia/Darwin"
+        case ...36000:
+            return "Australia/Brisbane"
+        case ...37800:
+            return "Australia/Adelaide"
+        case ...39600:
+            return "Australia/Sydney"
+        case ...43200:
+            return "Pacific/Fiji"
+        case ...46800:
+            return "Pacific/Auckland"
+        case ...49500:
+            return "Pacific/Chatham"
+        case ...50400:
+            return "Pacific/Kiritimati"
+        
+        default:
+            return "Europe/London"
+        }
+    }
+
+    
 //    var humidityStrength: String {
 //        switch humidity {
 //        case 0...20:
@@ -274,3 +357,5 @@ struct WeatherModelImperial{
         return String (format: "%.0f", windSpeedImperial)
     }
 }
+
+

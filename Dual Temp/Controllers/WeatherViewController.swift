@@ -277,6 +277,45 @@ extension WeatherViewController: WeatherManagerDelegate {
         
         print(timeZoneIdentifier)
         
+        //MARK: - local time
+        
+        
+            let d = Date()
+            var f = Date.FormatStyle()
+            .hour(.defaultDigits(amPM: .abbreviated))
+                    .minute(.twoDigits)
+//            print(d.formatted(f))
+            f.timeZone = TimeZone(identifier: weather.timeZoneIndentifier)!
+            print(d.formatted(f))
+        
+
+      
+        
+        
+        
+        
+        let localTime = d.formatted(f)
+//        print("\(hour):\(minute)")
+        
+        
+        
+    
+//        print  (localTime)
+        
+        
+        
+        
+//        let localTime = weather.timezone
+//        formatter.timeZone = TimeZone(secondsFromGMT: weather.timezone)
+//        formatter.timeStyle = .short
+//        formatter.dateStyle = .none
+//        let localTimeFormatted = formatter.string(from: localTime)
+       
+        
+        
+        
+        
+        //MARK: - end local time
         
         
         DispatchQueue.main.async {
@@ -284,7 +323,7 @@ extension WeatherViewController: WeatherManagerDelegate {
             
             self.temperatureLabel.text = "\(weather.temperatureString)°C"
             self.temperatureLabel.textColor = weather.temperatureColorCelsius
-            self.timezoneLabel.text = timeZoneIdentifier
+            self.timezoneLabel.text = "\(timeZoneIdentifier) \n \(localTime)"
             
             self.humidityLabel.text = "\(weather.humidity)%"
             
