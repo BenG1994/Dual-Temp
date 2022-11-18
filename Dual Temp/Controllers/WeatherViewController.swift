@@ -245,7 +245,7 @@ extension WeatherViewController: WeatherManagerDelegate {
             if self.unitsChanged.currentTitle == "Imperial"{
                 self.feelsLikeLabel.text = "\(weather.feelsLikeStringFahrenheit)°F"
                 self.windSpeedLabel.text = "\(weather.windSpeedStringImperial)mp/h"
-                self.visibilityLabel.text = "\(visibilityStringImperialNew)m"
+                self.visibilityLabel.text = "\(visibilityStringImperialNew)mi"
                 
             }
         }
