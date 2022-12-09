@@ -34,14 +34,16 @@ class WeatherViewController: UIViewController {
     
     let locationManager = CLLocationManager()
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    let userDefaults = UserDefaults()
-    
-    
+    let userDefaults = UserDefaults.standard
+
+
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
 
         let flag = Flag(countryCode: "US")!
     
@@ -51,22 +53,57 @@ class WeatherViewController: UIViewController {
         locationManager.startUpdatingLocation()
         print(locationManager.location)
         locationManager.stopUpdatingLocation()
+//        cityLabel.text = "..."
+//        temperatureLabel.text = "21°C"
+//        temperatureLabelFahrenheit.text = "21°F"
+        
+        unitsChanged.setTitle("Imperial", for: .normal)
     
-        unitsChanged.setTitle("Imperial", for: UIControl.State.normal)
+//        unitsChanged.setTitle("Imperial", for: UIControl.State.normal)
         
         weatherManager.delegate = self
         searchTextField.delegate = self
         unitsChanged.layer.cornerRadius = 10
         flagImage.image = flag.originalImage
+//        flagImage.image = userDefaults.object(forKey: "Flag") as? UIImage
         timezoneLabel.text = "GMT"
         
         
-        unitsChanged.setTitle(userDefaults.value(forKey: "UnitsLabel") as? String, for: UIControl.State.normal)
+//
         
 
 
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        if self.userDefaults.string(forKey: "SearchedCity") != nil {
+            cityLabel.text = self.userDefaults.string(forKey: "SearchedCity")
+        }else {
+            cityLabel.text = "..."
+        }
+        
+        if self.userDefaults.value(forKey: "UnitsLabel") != nil {
+            unitsChanged.setTitle(userDefaults.value(forKey: "UnitsLabel") as? String, for: .normal)
+        }else {
+            unitsChanged.setTitle("Imperial", for: .normal)
+        }
+        
+        if self.userDefaults.string(forKey: "CTemp") != nil {
+            temperatureLabel.text = self.userDefaults.string(forKey: "CTemp")
+        }else {
+            temperatureLabel.text = "21°C"
+        }
+        
+        if self.userDefaults.string(forKey: "FTemp") != nil {
+            temperatureLabelFahrenheit.text = self.userDefaults.string(forKey: "FTemp")
+        }else {
+            temperatureLabelFahrenheit.text = "21°F"
+        }
+        
+        //            unitsChanged.setTitle(userDefaults.value(forKey: "UnitsLabel") as? String, for: .normal)
+        //            cityLabel.text = self.userDefaults.string(forKey: "SearchedCity")
+        //            temperatureLabel.text = self.userDefaults.string(forKey: "CTemp")
+        //            temperatureLabelFahrenheit.text = self.userDefaults.string(forKey: "FTemp")
+    }
 
    
     
@@ -218,8 +255,8 @@ extension WeatherViewController: WeatherManagerDelegate {
         
         
         userDefaults.setValue(sender.currentTitle!, forKey: "UnitsLabel")
-        let units = sender.currentTitle!
-        unitsChanged.setTitle(units, for: UIControl.State.normal)
+//        let units = sender.currentTitle!
+//        unitsChanged.setTitle(units, for: UIControl.State.normal)
         
         
     }
@@ -237,6 +274,10 @@ extension WeatherViewController: WeatherManagerDelegate {
         DispatchQueue.main.async {
             self.temperatureLabelFahrenheit
                 .text = "\(weather.temperatureStringFahrenheit)°F"
+            
+            self.userDefaults.set("\(weather.temperatureStringFahrenheit)°F", forKey: "FTemp")
+            print(self.userDefaults.string(forKey: "FTemp")!)
+            
             self.temperatureLabelFahrenheit.textColor = weather.temperatureColorFahrenheit
             
         }
@@ -256,6 +297,11 @@ extension WeatherViewController: WeatherManagerDelegate {
         let newVisibility = weather.visibility/1000
         let countryCode = weather.country
         let flag = Flag(countryCode: countryCode)!
+        
+//        let flagString = "\(flag)"
+        
+//        self.userDefaults.set(flag, forKey: "Flag")
+//        print(self.userDefaults.object(forKey: "Flag")!)
         
         
         let sunsetTimeStamp = Date(timeIntervalSince1970: weather.sunset)
@@ -320,14 +366,27 @@ extension WeatherViewController: WeatherManagerDelegate {
         
         DispatchQueue.main.async {
             
+//            self.userDefaults.set("\(weather.cityName)", forKey: "searchedCity")
+            self.userDefaults.set("\(weather.cityName)", forKey: "SearchedCity")
+            print(self.userDefaults.string(forKey: "SearchedCity")!)
             
+            self.userDefaults.set("\(weather.temperatureString)°C", forKey: "CTemp")
+            print(self.userDefaults.string(forKey: "FTemp")!)
+            
+           
             self.temperatureLabel.text = "\(weather.temperatureString)°C"
             self.temperatureLabel.textColor = weather.temperatureColorCelsius
+            
+            
             self.timezoneLabel.text = "\(timeZoneIdentifier) \n \(localTime)"
             
             self.humidityLabel.text = "\(weather.humidity)%"
             
             self.cityLabel.text = "\(weather.cityName)"
+            
+            
+            
+            
             self.flagImage.image = flag.originalImage
             self.conditionImageView.image = UIImage(systemName: weather.conditionName)
             self.sunsetLabel.text = "\(formattedSunsetTime)"
@@ -358,6 +417,20 @@ extension WeatherViewController: WeatherManagerDelegate {
    
     
 }
+
+
+//extension WeatherViewController: UISearchBarDelegate{
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        if searchBar.text?.count == 0 {
+//
+//            DispatchQueue.main.async {
+//                searchBar.resignFirstResponder()
+//
+//            }
+//        }
+//    }
+//}
+
 //extension WeatherViewController{
 //    //    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //    //        self.searchTextField.endEditing(true)
