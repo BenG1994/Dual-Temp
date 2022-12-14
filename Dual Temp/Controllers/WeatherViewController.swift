@@ -75,30 +75,34 @@ class WeatherViewController: UIViewController {
 
     }
     override func viewWillAppear(_ animated: Bool) {
-        if self.userDefaults.string(forKey: "SearchedCity") != nil {
-            cityLabel.text = self.userDefaults.string(forKey: "SearchedCity")
-        }else {
-            cityLabel.text = "..."
-        }
         
-        if self.userDefaults.value(forKey: "UnitsLabel") != nil {
-            unitsChanged.setTitle(userDefaults.value(forKey: "UnitsLabel") as? String, for: .normal)
-        }else {
-            unitsChanged.setTitle("Imperial", for: .normal)
-        }
         
-        if self.userDefaults.string(forKey: "CTemp") != nil {
-            temperatureLabel.text = self.userDefaults.string(forKey: "CTemp")
-        }else {
-            temperatureLabel.text = "21°C"
+        DispatchQueue.main.async {
+            
+            if self.userDefaults.string(forKey: "SearchedCity") != nil {
+                self.cityLabel.text = self.userDefaults.string(forKey: "SearchedCity")
+            }else {
+                self.cityLabel.text = "..."
+            }
+            
+            if self.userDefaults.value(forKey: "UnitsLabel") != nil {
+                self.unitsChanged.setTitle(self.userDefaults.value(forKey: "UnitsLabel") as? String, for: .normal)
+            }else {
+                self.unitsChanged.setTitle("Imperial", for: .normal)
+            }
+            
+            if self.userDefaults.string(forKey: "CTemp") != nil {
+                self.temperatureLabel.text = self.userDefaults.string(forKey: "CTemp")
+            }else {
+                self.temperatureLabel.text = "21°C"
+            }
+            
+            if self.userDefaults.string(forKey: "FTemp") != nil {
+                self.temperatureLabelFahrenheit.text = self.userDefaults.string(forKey: "FTemp")
+            }else {
+                self.temperatureLabelFahrenheit.text = "21°F"
+            }
         }
-        
-        if self.userDefaults.string(forKey: "FTemp") != nil {
-            temperatureLabelFahrenheit.text = self.userDefaults.string(forKey: "FTemp")
-        }else {
-            temperatureLabelFahrenheit.text = "21°F"
-        }
-        
         //            unitsChanged.setTitle(userDefaults.value(forKey: "UnitsLabel") as? String, for: .normal)
         //            cityLabel.text = self.userDefaults.string(forKey: "SearchedCity")
         //            temperatureLabel.text = self.userDefaults.string(forKey: "CTemp")
