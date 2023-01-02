@@ -156,6 +156,11 @@ extension WeatherViewController: CLLocationManagerDelegate {
 extension WeatherViewController: UITextFieldDelegate {
     
     
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        <#code#>
+//    }
+    
+    
     @IBAction func searchPressed(_ sender: UIButton) {
         print (searchTextField.text!)
         searchTextField.endEditing(true)

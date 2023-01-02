@@ -45,14 +45,16 @@
                                                             <action selector="locationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="046-LC-iz0"/>
                                                         </connections>
                                                     </button>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="right" clearsOnBeginEditing="YES" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p2u-Qa-DXw">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="right" clearsOnBeginEditing="YES" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p2u-Qa-DXw">
                                                         <rect key="frame" x="52" y="0.0" width="253" height="40"/>
                                                         <color key="backgroundColor" systemColor="systemFillColor"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="253" id="Ck0-Wx-msJ"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="253" id="QjY-MK-1xp"/>
                                                             <constraint firstAttribute="height" constant="40" id="SKQ-80-uZl"/>
                                                             <constraint firstAttribute="width" priority="253" constant="253" id="uhu-G3-K38"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="search"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="BYZ-38-t0r" id="KzL-bf-j0W"/>
@@ -72,6 +74,10 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="ukw-rv-ceE" firstAttribute="leading" secondItem="p2u-Qa-DXw" secondAttribute="trailing" constant="12" id="78g-8B-mYb"/>
+                                                    <constraint firstItem="p2u-Qa-DXw" firstAttribute="leading" secondItem="0Ht-OM-TO0" secondAttribute="trailing" constant="12" id="Zad-gz-oWu"/>
+                                                </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gUO-Uu-348" userLabel="City">
                                                 <rect key="frame" x="28.333333333333343" y="81.666666666666657" width="300" height="85"/>
