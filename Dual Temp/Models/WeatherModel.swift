@@ -31,8 +31,17 @@ struct WeatherModel {
         return correctCityName
     }
     
+//    var roundedTemperature: Double {
+//        return ceil(temperature)
+//    }
+    
     var temperatureString: String {
+        
+//        var roundNum = temperature.rounded(.toNearestOrAwayFromZero)
+        
+        
         return String (format: "%.0f", temperature)
+//        round before turning into string. maybe here?
     }
     
     var feelsLikeString: String {

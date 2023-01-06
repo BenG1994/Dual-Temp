@@ -92,7 +92,15 @@ class WeatherViewController: UIViewController {
             }
             
             if self.userDefaults.string(forKey: "CTemp") != nil {
+//                let roundedTemp = self.userDefaults.string(forKey: "CTemp")
+//
+//                if roundedTemp == "-0°C"{
+//                    roundedTemp?.replacingOccurrences(of: "-0°C", with: "0°C")
+//                }
+//
+//                self.temperatureLabel.text = roundedTemp
                 self.temperatureLabel.text = self.userDefaults.string(forKey: "CTemp")
+        
             }else {
                 self.temperatureLabel.text = "21°C"
             }
@@ -378,6 +386,7 @@ extension WeatherViewController: WeatherManagerDelegate {
 //            self.userDefaults.set("\(weather.cityName)", forKey: "searchedCity")
             self.userDefaults.set("\(weather.cityName)", forKey: "SearchedCity")
             print(self.userDefaults.string(forKey: "SearchedCity")!)
+    
             
             self.userDefaults.set("\(weather.temperatureString)°C", forKey: "CTemp")
             print(self.userDefaults.string(forKey: "FTemp")!)

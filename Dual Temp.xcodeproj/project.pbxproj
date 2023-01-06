@@ -9,6 +9,19 @@
 /* Begin PBXBuildFile section */
 		2E0C00EB290032C60018B8D3 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0C00EA290032C60018B8D3 /* WeatherModel.swift */; };
 		2E4994082905678E0067D443 /* FlagKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2E4994072905678E0067D443 /* FlagKit */; };
+		2E5CD53429689F05008CD108 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E5CD53329689F05008CD108 /* WidgetKit.framework */; };
+		2E5CD53629689F05008CD108 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E5CD53529689F05008CD108 /* SwiftUI.framework */; };
+		2E5CD53929689F05008CD108 /* DualTempWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5CD53829689F05008CD108 /* DualTempWidgetBundle.swift */; };
+		2E5CD53B29689F05008CD108 /* DualTempWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5CD53A29689F05008CD108 /* DualTempWidget.swift */; };
+		2E5CD53D29689F07008CD108 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E5CD53C29689F07008CD108 /* Assets.xcassets */; };
+		2E5CD54129689F07008CD108 /* DualTempWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2E5CD53129689F05008CD108 /* DualTempWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2E5CD5492968ACEE008CD108 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ED7D7F829001F8200634C4B /* Assets.xcassets */; };
+		2E5CD5502968BFFA008CD108 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE3E4AA290031FF008D57FA /* WeatherManager.swift */; };
+		2E5CD5512968BFFA008CD108 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0C00EA290032C60018B8D3 /* WeatherModel.swift */; };
+		2E5CD5522968BFFA008CD108 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAC53762900360F0006506F /* WeatherData.swift */; };
+		2E5CD55C2968CB00008CD108 /* WeatherModelWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5CD55B2968CB00008CD108 /* WeatherModelWidget.swift */; };
+		2E5CD5602968D5BE008CD108 /* WeatherEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5CD55F2968D5BE008CD108 /* WeatherEntry.swift */; };
+		2E5CD5622968D5E2008CD108 /* TimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5CD5612968D5E2008CD108 /* TimelineProvider.swift */; };
 		2E7F8E51290D833E006BB4C4 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F8E50290D833E006BB4C4 /* Country.swift */; };
 		2E7F8E53290D8757006BB4C4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F8E52290D8757006BB4C4 /* Constants.swift */; };
 		2E8890C2290D3A5800F44459 /* CountryCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8890C1290D3A5800F44459 /* CountryCodeViewController.swift */; };
@@ -22,8 +35,44 @@
 		2EE3E4AB290031FF008D57FA /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE3E4AA290031FF008D57FA /* WeatherManager.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		2E5CD53F29689F07008CD108 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2ED7D7E429001F7F00634C4B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E5CD53029689F05008CD108;
+			remoteInfo = DualTempWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2E5CD54229689F07008CD108 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2E5CD54129689F07008CD108 /* DualTempWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2E0C00EA290032C60018B8D3 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		2E5CD53129689F05008CD108 /* DualTempWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DualTempWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E5CD53329689F05008CD108 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		2E5CD53529689F05008CD108 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		2E5CD53829689F05008CD108 /* DualTempWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DualTempWidgetBundle.swift; sourceTree = "<group>"; };
+		2E5CD53A29689F05008CD108 /* DualTempWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DualTempWidget.swift; sourceTree = "<group>"; };
+		2E5CD53C29689F07008CD108 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2E5CD53E29689F07008CD108 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E5CD5592968C56C008CD108 /* DualTempWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DualTempWidgetExtension.entitlements; sourceTree = "<group>"; };
+		2E5CD55A2968C57F008CD108 /* Dual Temp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Dual Temp.entitlements"; sourceTree = "<group>"; };
+		2E5CD55B2968CB00008CD108 /* WeatherModelWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModelWidget.swift; sourceTree = "<group>"; };
+		2E5CD55F2968D5BE008CD108 /* WeatherEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherEntry.swift; sourceTree = "<group>"; };
+		2E5CD5612968D5E2008CD108 /* TimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineProvider.swift; sourceTree = "<group>"; };
 		2E7F8E50290D833E006BB4C4 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		2E7F8E52290D8757006BB4C4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2E8890C1290D3A5800F44459 /* CountryCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +89,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2E5CD52E29689F05008CD108 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E5CD53629689F05008CD108 /* SwiftUI.framework in Frameworks */,
+				2E5CD53429689F05008CD108 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2ED7D7E929001F7F00634C4B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -51,10 +109,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E5CD53229689F05008CD108 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2E5CD53329689F05008CD108 /* WidgetKit.framework */,
+				2E5CD53529689F05008CD108 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2E5CD53729689F05008CD108 /* DualTempWidget */ = {
+			isa = PBXGroup;
+			children = (
+				2E5CD53829689F05008CD108 /* DualTempWidgetBundle.swift */,
+				2E5CD53A29689F05008CD108 /* DualTempWidget.swift */,
+				2E5CD5612968D5E2008CD108 /* TimelineProvider.swift */,
+				2E5CD55B2968CB00008CD108 /* WeatherModelWidget.swift */,
+				2E5CD55F2968D5BE008CD108 /* WeatherEntry.swift */,
+				2E5CD53C29689F07008CD108 /* Assets.xcassets */,
+				2E5CD53E29689F07008CD108 /* Info.plist */,
+			);
+			path = DualTempWidget;
+			sourceTree = "<group>";
+		};
 		2ED7D7E329001F7F00634C4B = {
 			isa = PBXGroup;
 			children = (
+				2E5CD5592968C56C008CD108 /* DualTempWidgetExtension.entitlements */,
 				2ED7D7EE29001F8000634C4B /* Dual Temp */,
+				2E5CD53729689F05008CD108 /* DualTempWidget */,
+				2E5CD53229689F05008CD108 /* Frameworks */,
 				2ED7D7ED29001F8000634C4B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				2ED7D7EC29001F8000634C4B /* Dual Temp.app */,
+				2E5CD53129689F05008CD108 /* DualTempWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,6 +155,7 @@
 		2ED7D7EE29001F8000634C4B /* Dual Temp */ = {
 			isa = PBXGroup;
 			children = (
+				2E5CD55A2968C57F008CD108 /* Dual Temp.entitlements */,
 				2ED7D7EF29001F8000634C4B /* AppDelegate.swift */,
 				2ED7D7F129001F8000634C4B /* SceneDelegate.swift */,
 				2EE3E4AC29003212008D57FA /* Models */,
@@ -114,6 +200,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2E5CD53029689F05008CD108 /* DualTempWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E5CD54529689F07008CD108 /* Build configuration list for PBXNativeTarget "DualTempWidgetExtension" */;
+			buildPhases = (
+				2E5CD52D29689F05008CD108 /* Sources */,
+				2E5CD52E29689F05008CD108 /* Frameworks */,
+				2E5CD52F29689F05008CD108 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DualTempWidgetExtension;
+			productName = DualTempWidgetExtension;
+			productReference = 2E5CD53129689F05008CD108 /* DualTempWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		2ED7D7EB29001F7F00634C4B /* Dual Temp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2ED7D80029001F8200634C4B /* Build configuration list for PBXNativeTarget "Dual Temp" */;
@@ -121,10 +224,12 @@
 				2ED7D7E829001F7F00634C4B /* Sources */,
 				2ED7D7E929001F7F00634C4B /* Frameworks */,
 				2ED7D7EA29001F7F00634C4B /* Resources */,
+				2E5CD54229689F07008CD108 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2E5CD54029689F07008CD108 /* PBXTargetDependency */,
 			);
 			name = "Dual Temp";
 			packageProductDependencies = (
@@ -141,9 +246,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1400;
+				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
+					2E5CD53029689F05008CD108 = {
+						CreatedOnToolsVersion = 14.2;
+					};
 					2ED7D7EB29001F7F00634C4B = {
 						CreatedOnToolsVersion = 14.0.1;
 					};
@@ -166,11 +274,21 @@
 			projectRoot = "";
 			targets = (
 				2ED7D7EB29001F7F00634C4B /* Dual Temp */,
+				2E5CD53029689F05008CD108 /* DualTempWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2E5CD52F29689F05008CD108 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E5CD5492968ACEE008CD108 /* Assets.xcassets in Resources */,
+				2E5CD53D29689F07008CD108 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2ED7D7EA29001F7F00634C4B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -184,6 +302,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2E5CD52D29689F05008CD108 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E5CD55C2968CB00008CD108 /* WeatherModelWidget.swift in Sources */,
+				2E5CD5502968BFFA008CD108 /* WeatherManager.swift in Sources */,
+				2E5CD53929689F05008CD108 /* DualTempWidgetBundle.swift in Sources */,
+				2E5CD5512968BFFA008CD108 /* WeatherModel.swift in Sources */,
+				2E5CD53B29689F05008CD108 /* DualTempWidget.swift in Sources */,
+				2E5CD5622968D5E2008CD108 /* TimelineProvider.swift in Sources */,
+				2E5CD5522968BFFA008CD108 /* WeatherData.swift in Sources */,
+				2E5CD5602968D5BE008CD108 /* WeatherEntry.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2ED7D7E829001F7F00634C4B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -201,6 +334,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2E5CD54029689F07008CD108 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2E5CD53029689F05008CD108 /* DualTempWidgetExtension */;
+			targetProxy = 2E5CD53F29689F07008CD108 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2ED7D7F529001F8000634C4B /* Main.storyboard */ = {
@@ -222,6 +363,64 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2E5CD54329689F07008CD108 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = DualTempWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 9;
+				DEVELOPMENT_TEAM = 4224Q87F2F;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DualTempWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DualTempWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bengauger.Dual-Temp.DualTempWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2E5CD54429689F07008CD108 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = DualTempWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 9;
+				DEVELOPMENT_TEAM = 4224Q87F2F;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DualTempWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DualTempWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bengauger.Dual-Temp.DualTempWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		2ED7D7FE29001F8200634C4B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -339,10 +538,12 @@
 		2ED7D80129001F8200634C4B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Dual Temp/Dual Temp.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 4224Q87F2F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Dual Temp/Info.plist";
@@ -358,7 +559,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bengauger.Dual-Temp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -373,10 +574,12 @@
 		2ED7D80229001F8200634C4B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Dual Temp/Dual Temp.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 4224Q87F2F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Dual Temp/Info.plist";
@@ -392,7 +595,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bengauger.Dual-Temp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -407,6 +610,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2E5CD54529689F07008CD108 /* Build configuration list for PBXNativeTarget "DualTempWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E5CD54329689F07008CD108 /* Debug */,
+				2E5CD54429689F07008CD108 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2ED7D7E729001F7F00634C4B /* Build configuration list for PBXProject "Dual Temp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

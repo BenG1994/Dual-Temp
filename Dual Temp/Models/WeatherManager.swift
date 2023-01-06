@@ -117,6 +117,9 @@ struct WeatherManager {
                 latitude: latitude,
                 longitude: longitude)
             
+//            UserDefaults(suiteName:
+//            "group.DualTemp")!.set(decodedData, forKey: "weather")
+            
             return weather
         }catch {
             delegate?.didFailWithError(error: error)
