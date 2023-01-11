@@ -10,4 +10,5 @@ import WidgetKit
 
 struct WeatherEntry: TimelineEntry {
     let date: Date
+    let weatherData: WeatherModel?
 }

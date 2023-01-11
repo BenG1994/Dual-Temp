@@ -7,26 +7,13 @@
 
 import WidgetKit
 import SwiftUI
+import WeatherKit
 
 
 
 
-struct DualTempWidgetEntryView : View {
-    var entry: Provider.Entry
 
-    var body: some View {
-        
-        ZStack{
-            Color("WidgetBackground")
-            VStack{
-//                Text()
-            }
-            
-            
-        }
-        
-    }
-}
+
 
 struct DualTempWidget: Widget {
     let kind: String = "DualTempWidget"

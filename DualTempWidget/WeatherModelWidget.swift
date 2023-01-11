@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import WeatherKit
 
 
 struct WeatherModelWidget {
@@ -14,6 +15,7 @@ struct WeatherModelWidget {
     let conditionId: Int
     let cityName: String
     let temperature: Double
+    
     
     
     var temperatureString: String {
