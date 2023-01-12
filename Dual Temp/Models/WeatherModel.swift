@@ -245,7 +245,7 @@ struct WeatherModel {
 struct WeatherModelFahrenheit {
     
     let conditionId: Int
-   let cityName: String
+    let cityName: String
     let temperatureFahrenheit: Double
     let feels_likeFahrenheit: Double
     let visibilityImperial: Int
@@ -344,6 +344,27 @@ struct WeatherModelMetric{
         return String (format: "%.0f", windSpeedMetric)
     }
 }
+
+//struct WeatherModelFahrenheitWidget {
+//    let temperatureFahrenheit: Double
+//
+//    var temperatureStringFahrenheit: String {
+//        return String (format: "%.0f", temperatureFahrenheit)
+//    }
+//}
+//
+//struct WeatherModelWidget {
+//    let temperature: Double
+//
+//    var temperatureString: String {
+//
+////        var roundNum = temperature.rounded(.toNearestOrAwayFromZero)
+//
+//
+//        return String (format: "%.0f", temperature)
+////        round before turning into string. maybe here?
+//    }
+//}
 
 //MARK: - Imperial
 

@@ -2,18 +2,19 @@
 //  TimelineProvider.swift
 //  DualTempWidgetExtension
 //
-//  Created by Ben Gauger on 1/6/23.
+//  Created by Ben Gauger on 1/12/23.
 //
 
 import WidgetKit
+import SwiftUI
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> WeatherEntry {
-        WeatherEntry(date: Date())
+        WeatherEntry(date: Date(), name: "", temperature: Main(temp: <#T##Double#>, pressure: <#T##Int#>, feels_like: <#T##Double#>, temp_min: <#T##Double#>, temp_max: <#T##Double#>, humidity: <#T##Int#>))
     }
 
     func getSnapshot(in context: Context, completion: @escaping (WeatherEntry) -> ()) {
-        let entry = WeatherEntry(date: Date())
+        let entry = WeatherEntry(date: Date(), name: "")
         completion(entry)
     }
 
@@ -24,16 +25,11 @@ struct Provider: TimelineProvider {
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = WeatherEntry(date: entryDate)
+            let entry = WeatherEntry(date: entryDate, name: "")
             entries.append(entry)
         }
 
         let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
-    }
-    
-    func createTimelineEntry(date: Date, configuration: StaticConfiguration, completion: @escaping (WeatherEntry) -> ()) {
-        WeatherModel
-            .getWeatherData (for: configuration.symbol ??)
     }
 }
