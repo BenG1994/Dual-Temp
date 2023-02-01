@@ -2,7 +2,7 @@
 
 ![120](https://user-images.githubusercontent.com/113778995/215928717-c126f83f-9c99-48eb-a547-82b17f5feaf1.png)
 
-Dual Temp is a weather app that displays current weather data in both Celsius and Fahrenheit at the same time. Users can also switch between metric and imperial units for other data presented.
+Dual Temp is a weather app that displays current weather data in both Celsius and Fahrenheit at the same time. Users can also switch between metric and imperial units for other data presented. Download now from the [App Store](https://apps.apple.com/us/app/dual-temp/id6444102734).
 
 ## Introduction
 
