@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import FlagKit
+import WidgetKit
 
 class WeatherViewController: UIViewController {
     
@@ -37,7 +38,7 @@ class WeatherViewController: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     let userDefaults = UserDefaults.standard
-
+    let textUserDefaults = UserDefaults(suiteName: "group.DualTemp")!
 
     
     override func viewDidLoad() {
@@ -110,6 +111,9 @@ class WeatherViewController: UIViewController {
             }else {
                 self.temperatureLabelFahrenheit.text = "21°F"
             }
+            
+            
+            WidgetCenter.shared.reloadAllTimelines()
         }
         //            unitsChanged.setTitle(userDefaults.value(forKey: "UnitsLabel") as? String, for: .normal)
         //            cityLabel.text = self.userDefaults.string(forKey: "SearchedCity")
@@ -135,7 +139,6 @@ class WeatherViewController: UIViewController {
     }
     
     
-    
 }
 
 
@@ -151,6 +154,8 @@ extension WeatherViewController: CLLocationManagerDelegate {
             let lon = location.coordinate.longitude
             weatherManager.fetchWeather(latitude: lat, longitude: lon)
             weatherManager.fetchWeatherFahrenheit(latitude: lat, longitude: lon)
+//            textUserDefaults?.set(weatherManager.fetchWeather(latitude: lat, longitude: lon), forKey: "CTemp")
+//            print("\(textUserDefaults?.value(forKey: "CTemp")) current location)
         }
     }
     
@@ -293,6 +298,13 @@ extension WeatherViewController: WeatherManagerDelegate {
                 .text = "\(weather.temperatureStringFahrenheit)°F"
             
             self.userDefaults.set("\(weather.temperatureStringFahrenheit)°F", forKey: "FTemp")
+            
+            self.textUserDefaults.set("\(weather.temperatureStringFahrenheit)°F", forKey: "FTempWidget")
+            print("\(self.textUserDefaults.string(forKey: "FTempWidget")!) text user defaults for FTemp")
+            WidgetCenter.shared.reloadAllTimelines()
+            
+            
+            
             print(self.userDefaults.string(forKey: "FTemp")!)
             
             self.temperatureLabelFahrenheit.textColor = weather.temperatureColorFahrenheit
@@ -385,12 +397,17 @@ extension WeatherViewController: WeatherManagerDelegate {
             
 //            self.userDefaults.set("\(weather.cityName)", forKey: "searchedCity")
             self.userDefaults.set("\(weather.cityName)", forKey: "SearchedCity")
+            self.textUserDefaults.set("\(weather.cityName)", forKey: "SearchedCityWidget")
+//            WidgetCenter.shared.reloadAllTimelines()
             print(self.userDefaults.string(forKey: "SearchedCity")!)
+            print("\(self.textUserDefaults.string(forKey: "SearchedCityWidget")!) text user defaults for city name")
     
             
             self.userDefaults.set("\(weather.temperatureString)°C", forKey: "CTemp")
-            print(self.userDefaults.string(forKey: "FTemp")!)
-            
+            self.textUserDefaults.set("\(weather.temperatureString)°C", forKey: "CTempWidget")
+            print("\(self.textUserDefaults.string(forKey: "CTempWidget")!) text user defaults for CTemp")
+//            print(self.userDefaults.string(forKey: "CTemp")!)
+            WidgetCenter.shared.reloadAllTimelines()
            
             self.temperatureLabel.text = "\(weather.temperatureString)°C"
             self.temperatureLabel.textColor = weather.temperatureColorCelsius
@@ -407,8 +424,16 @@ extension WeatherViewController: WeatherManagerDelegate {
             
             self.flagImage.image = flag.originalImage
             self.conditionImageView.image = UIImage(systemName: weather.conditionName)
+            
+            //MARK: - conditionID
+            print("\(weather.conditionName) condition for Widget")
+            self.textUserDefaults.set(weather.conditionName, forKey: "WidgetIcon")
+            print("\(self.textUserDefaults.value(forKey: "WidgetIcon")!) condition for WidgetIcon shit")
+//            WidgetCenter.shared.reloadAllTimelines()
+            
             self.sunsetLabel.text = "\(formattedSunsetTime)"
             self.sunriseLabel.text = "\(formattedSunriseTime)"
+            
         }
         
         

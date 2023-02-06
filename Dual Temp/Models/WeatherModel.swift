@@ -144,7 +144,9 @@ struct WeatherModel {
         default:
             return UIColor.black
         }
+        
     }
+    
     
     //MARK: - TimeZone Switch
 
