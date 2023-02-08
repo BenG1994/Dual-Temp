@@ -113,6 +113,12 @@ class WeatherViewController: UIViewController {
             }
             
             
+            if self.userDefaults.value(forKey: "WeatherIcon") != nil {
+                self.conditionImageView.image = UIImage(systemName: self.userDefaults.value(forKey: "WeatherIcon") as! String)
+            }else{
+                self.conditionImageView.image = UIImage(systemName: "sun")
+            }
+            
             WidgetCenter.shared.reloadAllTimelines()
         }
         //            unitsChanged.setTitle(userDefaults.value(forKey: "UnitsLabel") as? String, for: .normal)
@@ -427,6 +433,10 @@ extension WeatherViewController: WeatherManagerDelegate {
             
             //MARK: - conditionID
             print("\(weather.conditionName) condition for Widget")
+            
+            self.userDefaults.set(weather.conditionName, forKey: "WeatherIcon")
+            print("\(self.userDefaults.value(forKey: "WeatherIcon")!) condition for WeatherIcon shit")
+            
             self.textUserDefaults.set(weather.conditionName, forKey: "WidgetIcon")
             print("\(self.textUserDefaults.value(forKey: "WidgetIcon")!) condition for WidgetIcon shit")
 //            WidgetCenter.shared.reloadAllTimelines()

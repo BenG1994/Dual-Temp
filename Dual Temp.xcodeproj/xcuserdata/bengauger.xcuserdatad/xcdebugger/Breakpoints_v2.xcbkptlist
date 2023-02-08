@@ -27,5 +27,53 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "530A7958-6C68-480B-80B4-36D86ED3FFDA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Dual Temp/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "scheduleAppRefresh()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "530A7958-6C68-480B-80B4-36D86ED3FFDA - 7f9337900f8f89c6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Dual_Temp.AppDelegate.scheduleAppRefresh() -&gt; ()"
+                  moduleName = "Dual Temp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bengauger/Desktop/App%20projects/Dual%20Temp/Dual%20Temp/Dual%20Temp/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "428">
+               </Location>
+               <Location
+                  uuid = "530A7958-6C68-480B-80B4-36D86ED3FFDA - 7f9337900f8f89c6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Dual_Temp.AppDelegate.scheduleAppRefresh() -&gt; ()"
+                  moduleName = "Dual Temp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bengauger/Desktop/App%20projects/Dual%20Temp/Dual%20Temp/Dual%20Temp/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "1260">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

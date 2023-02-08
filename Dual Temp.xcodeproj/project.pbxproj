@@ -17,7 +17,6 @@
 		2E78145829917442009EEE40 /* DualTempWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2E78144B29917441009EEE40 /* DualTempWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2E7F8E51290D833E006BB4C4 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F8E50290D833E006BB4C4 /* Country.swift */; };
 		2E7F8E53290D8757006BB4C4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F8E52290D8757006BB4C4 /* Constants.swift */; };
-		2E83F6AA29707ED100551C85 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E83F6A929707ED100551C85 /* Background.swift */; };
 		2E8890C2290D3A5800F44459 /* CountryCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8890C1290D3A5800F44459 /* CountryCodeViewController.swift */; };
 		2EAC53772900360F0006506F /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAC53762900360F0006506F /* WeatherData.swift */; };
 		2ED7D7F029001F8000634C4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7D7EF29001F8000634C4B /* AppDelegate.swift */; };
@@ -66,7 +65,6 @@
 		2E78145C2991746F009EEE40 /* DualTempWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DualTempWidgetExtension.entitlements; sourceTree = "<group>"; };
 		2E7F8E50290D833E006BB4C4 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		2E7F8E52290D8757006BB4C4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		2E83F6A929707ED100551C85 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		2E8890C1290D3A5800F44459 /* CountryCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeViewController.swift; sourceTree = "<group>"; };
 		2EAC53762900360F0006506F /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		2ED7D7EC29001F8000634C4B /* Dual Temp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dual Temp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,19 +119,10 @@
 			path = DualTempWidget;
 			sourceTree = "<group>";
 		};
-		2E83F6A829707EB700551C85 /* OldWidget */ = {
-			isa = PBXGroup;
-			children = (
-				2E83F6A929707ED100551C85 /* Background.swift */,
-			);
-			name = OldWidget;
-			sourceTree = "<group>";
-		};
 		2ED7D7E329001F7F00634C4B = {
 			isa = PBXGroup;
 			children = (
 				2E78145C2991746F009EEE40 /* DualTempWidgetExtension.entitlements */,
-				2E83F6A829707EB700551C85 /* OldWidget */,
 				2ED7D7EE29001F8000634C4B /* Dual Temp */,
 				2E78144E29917441009EEE40 /* DualTempWidget */,
 				2E5CD53229689F05008CD108 /* Frameworks */,
@@ -321,7 +310,6 @@
 				2E0C00EB290032C60018B8D3 /* WeatherModel.swift in Sources */,
 				2E8890C2290D3A5800F44459 /* CountryCodeViewController.swift in Sources */,
 				2E7F8E53290D8757006BB4C4 /* Constants.swift in Sources */,
-				2E83F6AA29707ED100551C85 /* Background.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,9 +529,11 @@
 				INFOPLIST_FILE = "Dual Temp/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Dual Temp";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to get the current weather for where you are.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -577,9 +567,11 @@
 				INFOPLIST_FILE = "Dual Temp/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Dual Temp";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to get the current weather for where you are.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;

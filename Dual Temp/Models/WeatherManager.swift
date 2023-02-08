@@ -18,6 +18,7 @@ protocol WeatherManagerDelegate {
 
 struct WeatherManager {
     
+    let session = URLSession(configuration: .default)
     
     let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=147b36d894b7480cc937f8d7e03a4af0&units=metric"
     
@@ -66,9 +67,37 @@ struct WeatherManager {
 //        performRequestMetric(with: urlString)
 //    }
     
+    func refresh() {
+        
+        func fetchWeather (cityName: String) {
+            let urlString = "\(weatherURL)&q=\(cityName)"
+            performRequest(with: urlString)
+        }
+        
+        
+        func fetchWeather(latitude: CLLocationDegrees, longitude: CLLocationDegrees){
+            let urlString = "\(weatherURL)&lat=\(latitude)&lon=\(longitude)"
+            performRequest(with: urlString)
+        }
+        
+        func fetchWeatherFahrenheit (cityName: String) {
+            let urlString = "\(weatherURLFahrenheit)&q=\(cityName)"
+            performRequestFahrenheit(with: urlString)
+            
+        }
+        
+        
+        func fetchWeatherFahrenheit(latitude: CLLocationDegrees, longitude: CLLocationDegrees){
+            let urlString = "\(weatherURLFahrenheit)&lat=\(latitude)&lon=\(longitude)"
+            performRequestFahrenheit(with: urlString)
+        }
+        
+        print("updated in background")
+    }
+    
     func performRequest(with urlString: String) {
         if let url = URL(string: urlString){
-            let session = URLSession(configuration: .default)
+//            let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) { (data, response, error) in
                 if error != nil {
                     self.delegate?.didFailWithError(error: error!)
@@ -131,7 +160,7 @@ struct WeatherManager {
     
     func performRequestFahrenheit(with urlString: String) {
         if let url = URL(string: urlString){
-            let session = URLSession(configuration: .default)
+//            let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) { (data, response, error) in
                 if error != nil {
                     self.delegate?.didFailWithError(error: error!)
@@ -171,7 +200,6 @@ struct WeatherManager {
             return nil
         }
     }
-    
     
 //    //MARK: - Button Press Celsius
 //
