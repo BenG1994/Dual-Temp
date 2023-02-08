@@ -11,8 +11,6 @@ import CoreLocation
 protocol WeatherManagerDelegate {
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel)
     func didUpdateWeatherFahrenheit( _weatherManager: WeatherManager, weather: WeatherModelFahrenheit)
-//    func didUpdateWeatherMetric ( _weatherManager: WeatherManager, weather: WeatherModelMetric)
-//    func didUpdateWeatherImperial ( _weatherManager: WeatherManager, weather: WeatherModelImperial)
     func didFailWithError (error:Error)
 }
 
