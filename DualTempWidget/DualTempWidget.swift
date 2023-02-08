@@ -74,86 +74,81 @@ struct Provider: TimelineProvider {
         let timeline = Timeline(entries: entries, policy: .after(refreshDate))
         completion(timeline)
     }
+}
+
+struct SimpleEntry: TimelineEntry {
+    let date: Date
+    let name: String
+    let temperatureCelsius: String
+    let temperatureFahrenheit: String
+    let weatherName: String
+    let weatherIcon: UIImage
+}
+
+struct DualTempWidgetEntryView : View {
     
-    struct SimpleEntry: TimelineEntry {
-        let date: Date
-        let name: String
-        let temperatureCelsius: String
-        let temperatureFahrenheit: String
-        let weatherName: String
-        let weatherIcon: UIImage
-    }
+    var entry: Provider.Entry
     
-    struct DualTempWidgetEntryView : View {
+    var body: some View {
         
-        var entry: Provider.Entry
-        
-        var body: some View {
-            
-            ZStack{
-                Color("WidgetBackground")
-                VStack(spacing: 0.8) {
-                    if #available(iOSApplicationExtension 16.0, *) {
-                        Text(entry.name)
-                            .padding(6)
-                            .bold()
-                            .font(.system(size: 27))
-                            .minimumScaleFactor(0.01)
-                            .lineLimit(1)
-                    } else {
-                        Text(entry.name)
-                            .padding(6)
-                            .font(.system(size: 29))
-                            .minimumScaleFactor(0.01)
-                            .lineLimit(1)
-                        // Fallback on earlier versions
-                    }
-                    Image(systemName: entry.weatherName)
-                        .resizable()
-                        .symbolRenderingMode(.palette)
-                        .scaledToFit()
-                        .frame(width: 70, height: 70)
-                    HStack{
-                        Text(entry.temperatureCelsius)
-                            .font(.system(size: 22))
-                        Text("|")
-                        Text(entry.temperatureFahrenheit)
-                            .font(.system(size: 22))
-                        
-                    }
-                    Text("Updated: \(getTime())")
-                        .font(.system(size: 7))
+        ZStack{
+            Color("WidgetBackground")
+            VStack(spacing: 0.8) {
+                if #available(iOSApplicationExtension 16.0, *) {
+                    Text(entry.name)
+                        .padding(6)
+                        .bold()
+                        .font(.system(size: 27))
+                        .minimumScaleFactor(0.01)
+                        .lineLimit(1)
+                } else {
+                    Text(entry.name)
+                        .padding(6)
+                        .font(.system(size: 29))
+                        .minimumScaleFactor(0.01)
+                        .lineLimit(1)
+                    // Fallback on earlier versions
                 }
+                Image(systemName: entry.weatherName)
+                    .resizable()
+                    .symbolRenderingMode(.palette)
+                    .scaledToFit()
+                    .frame(width: 70, height: 70)
+                HStack{
+                    Text(entry.temperatureCelsius)
+                        .font(.system(size: 22))
+                    Text("|")
+                    Text(entry.temperatureFahrenheit)
+                        .font(.system(size: 22))
+                    
+                }
+                Text("Updated: \(getTime())")
+                    .font(.system(size: 7))
             }
         }
     }
-    
-    struct DualTempWidget: Widget {
-        let kind: String = "DualTempWidget"
-        
-        var body: some WidgetConfiguration {
-            StaticConfiguration(kind: kind, provider: Provider()) { entry in
-                DualTempWidgetEntryView(entry: entry)
-            }
-            .configurationDisplayName("Dual Temp")
-            .description("See the current temperature, in celsius and fahrenheit, and weather conditions for your location.")
-            .supportedFamilies([.systemSmall])
-        }
-    }
-    
-    struct DualTempWidget_Previews: PreviewProvider {
-        static var previews: some View {
-            DualTempWidgetEntryView(entry: SimpleEntry(date: Date(), name: name as! String , temperatureCelsius: temperatureCelsius as! String, temperatureFahrenheit: temperatureFahrenheit as! String, weatherName: weatherID!, weatherIcon: weather!))
-                .previewContext(WidgetPreviewContext(family: .systemSmall))
-        }
-    }
-    
-    
 }
 
 
+struct DualTempWidget: Widget {
+    let kind: String = "DualTempWidget"
+    
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: kind, provider: Provider()) { entry in
+            DualTempWidgetEntryView(entry: entry)
+        }
+        .configurationDisplayName("Dual Temp")
+        .description("See the current temperature, in celsius and fahrenheit, and weather conditions for your location.")
+        .supportedFamilies([.systemSmall])
+    }
+}
 
-
+struct DualTempWidget_Previews: PreviewProvider {
+    static var previews: some View {
+        DualTempWidgetEntryView(entry: SimpleEntry(date: Date(), name: name as! String , temperatureCelsius: temperatureCelsius as! String, temperatureFahrenheit: temperatureFahrenheit as! String, weatherName: weatherID!, weatherIcon: weather!))
+            .previewContext(WidgetPreviewContext(family: .systemSmall))
+    }
+}
 
 
 

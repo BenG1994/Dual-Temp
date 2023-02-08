@@ -43,7 +43,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "530A7958-6C68-480B-80B4-36D86ED3FFDA - 7f9337900f8f89c6"
+                  uuid = "530A7958-6C68-480B-80B4-36D86ED3FFDA - 7f9337900f8f8842"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -53,12 +53,12 @@
                   urlString = "file:///Users/bengauger/Desktop/App%20projects/Dual%20Temp/Dual%20Temp/Dual%20Temp/AppDelegate.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "54"
-                  endingLineNumber = "54"
-                  offsetFromSymbolStart = "428">
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "408">
                </Location>
                <Location
-                  uuid = "530A7958-6C68-480B-80B4-36D86ED3FFDA - 7f9337900f8f89c6"
+                  uuid = "530A7958-6C68-480B-80B4-36D86ED3FFDA - 7f9337900f8f8842"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -68,9 +68,9 @@
                   urlString = "file:///Users/bengauger/Desktop/App%20projects/Dual%20Temp/Dual%20Temp/Dual%20Temp/AppDelegate.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "54"
-                  endingLineNumber = "54"
-                  offsetFromSymbolStart = "1260">
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "1204">
                </Location>
             </Locations>
          </BreakpointContent>
